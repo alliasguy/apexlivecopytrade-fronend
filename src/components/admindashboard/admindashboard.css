@@ -1,0 +1,1417 @@
+/* ============================================
+   APEXLIVECOPYTRADE - ADMIN DASHBOARD
+   Dark Mode + Neon Accents
+   ============================================ */
+
+/*
+  Modal/toast content portals straight to document.body via createPortal,
+  escaping .admin-dash's scope entirely (see tokens.css's notes on portal
+  theming). Admindashboard.jsx sets data-admin-theme="true" on <html> while
+  mounted so portaled content - e.g. the KYC document review modal - also
+  gets the admin panel's dark+cyan tokens instead of the global default.
+*/
+:root[data-admin-theme="true"] {
+  --color-primary: #00d4ff;
+  --color-primary-subtle: #00d4ff;
+  --color-primary-hover: #33ddff;
+  --color-primary-bg: rgba(0, 212, 255, 0.12);
+  --color-text-on-primary: #0a0a0f;
+
+  --color-success: #10b981;
+  --color-success-text: #10b981;
+  --color-success-bg: rgba(16, 185, 129, 0.14);
+  --color-error: #ff3d5a;
+  --color-error-text: #ff667d;
+  --color-error-bg: rgba(255, 61, 90, 0.14);
+  --color-warning: #f6bb02;
+  --color-warning-text: #ffcf4d;
+  --color-warning-bg: rgba(246, 187, 2, 0.14);
+
+  --color-bg: #0a0a0f;
+  --color-bg-subtle: #111118;
+  --color-surface: #14141c;
+  --color-border: #23232f;
+  --color-text: #ffffff;
+  --color-text-secondary: #94a3b8;
+}
+
+.admin-dash {
+  /*
+    The admin panel is always dark regardless of the rest of the app's
+    light/dark toggle, and its accent has always been cyan (not this app's
+    blue - see tokens.css's notes on why blue is the global default and
+    cyan is scoped here instead). New design-system components used inside
+    the admin panel (Card, Badge, Table, Modal, etc.) read these tokens,
+    so they need to be set explicitly rather than inherited from whatever
+    the global theme toggle currently is.
+  */
+  --color-primary: #00d4ff;
+  --color-primary-subtle: #00d4ff;
+  --color-primary-hover: #33ddff;
+  --color-primary-bg: rgba(0, 212, 255, 0.12);
+  --color-text-on-primary: #0a0a0f;
+
+  --color-success: #10b981;
+  --color-success-text: #10b981;
+  --color-success-bg: rgba(16, 185, 129, 0.14);
+  --color-error: #ff3d5a;
+  --color-error-text: #ff667d;
+  --color-error-bg: rgba(255, 61, 90, 0.14);
+  --color-warning: #f6bb02;
+  --color-warning-text: #ffcf4d;
+  --color-warning-bg: rgba(246, 187, 2, 0.14);
+
+  --color-bg: #0a0a0f;
+  --color-bg-subtle: #111118;
+  --color-surface: #14141c;
+  --color-border: #23232f;
+  --color-text: #ffffff;
+  --color-text-secondary: #94a3b8;
+
+  min-height: 100vh;
+  width: 100%;
+  background: #0a0a0f;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Scrollbar */
+.admin-dash ::-webkit-scrollbar { width: 5px; height: 5px; }
+.admin-dash ::-webkit-scrollbar-track { background: #111118; }
+.admin-dash ::-webkit-scrollbar-thumb { background: #2a2a3c; border-radius: 4px; }
+.admin-dash ::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.35); }
+
+/* ============================================
+   LOGIN
+   ============================================ */
+
+.admin-dash .login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0f;
+  background-image:
+    radial-gradient(ellipse at 15% 50%, rgba(124,58,237,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 50%, rgba(0,212,255,0.07) 0%, transparent 55%);
+}
+
+.admin-dash .form {
+  background: #111118;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 22px;
+  padding: 44px 40px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 70px rgba(0,212,255,0.06), 0 30px 60px rgba(0,0,0,0.55);
+}
+
+.admin-dash .login-logo {
+  width: 130px;
+  margin: 0 auto 28px;
+  display: block;
+}
+
+.admin-dash .title_container {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.admin-dash .titles {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f0f2f5;
+  text-transform: capitalize;
+  margin: 0 0 8px;
+}
+
+.admin-dash .subtitle {
+  font-size: 0.84rem;
+  color: #6b7280;
+  line-height: 1.55;
+}
+
+.admin-dash .input_containers {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.admin-dash .input_labels {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-dash .icont {
+  position: absolute;
+  left: 14px;
+  bottom: 13px;
+  pointer-events: none;
+}
+
+.admin-dash .icont path { stroke: #4b5563 !important; }
+
+.admin-dash .input_field {
+  width: 100%;
+  height: 48px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 11px;
+  color: #f0f2f5;
+  font-size: 0.92rem;
+  padding: 0 44px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.admin-dash .input_field::placeholder { color: #374151; }
+
+.admin-dash .input_field:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+}
+
+.admin-dash .eye-container {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.admin-dash .eye-container:hover { color: #00d4ff; }
+
+.admin-dash .form > button[type="submit"] {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  border: none;
+  border-radius: 11px;
+  color: #0a0a0f;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(0,212,255,0.3);
+}
+
+.admin-dash .form > button[type="submit"]:hover {
+  opacity: 0.88;
+  box-shadow: 0 0 36px rgba(0,212,255,0.5);
+}
+
+.admin-dash .form > button[type="submit"]:active { transform: scale(0.98); }
+
+/* ============================================
+   DASHBOARD LAYOUT
+   ============================================ */
+
+.admin-dash .dashboard-wrapper {
+  min-height: 100vh;
+  background: #0a0a0f;
+  position: relative;
+  flex-direction: unset;
+}
+
+.admin-dash .homewrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.admin-dash .userdashboard-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: #0e0e16;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.admin-dash .dashboard-logo-container {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.admin-dash .dashboard-logo {
+  height: 34px;
+  width: auto;
+}
+
+.admin-dash .dashboard-links-container {
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  list-style: none;
+  margin: 0;
+}
+
+.admin-dash .dashboard-links {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #5b6475;
+  font-size: 0.855rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+  list-style: none;
+}
+
+.admin-dash .dashboard-links:hover {
+  background: rgba(0,212,255,0.07);
+  color: #00d4ff;
+}
+
+.admin-dash .dashboard-links .dashboard-svg-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  font-size: 1rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.admin-dash .dashboard-links:hover .dashboard-svg-container {
+  background: rgba(0,212,255,0.11);
+  color: #00d4ff;
+}
+
+.admin-dash .dashboard-links p,
+.admin-dash .dashboard-links a {
+  margin: 0;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.855rem;
+  font-weight: 500;
+}
+
+/* sidebar badge accent line */
+.admin-dash .userdashboard-sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff44, transparent);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.admin-dash .dashboardhomepage {
+  width: calc(100vw - 240px) !important;
+  max-width: calc(100vw - 240px) !important;
+  margin-left: 240px !important;
+  min-height: 100vh;
+  background: #0a0a0f;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   TOP HEADER BAR
+   ============================================ */
+
+.admin-dash .dashboardheaderwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 28px;
+  height: 64px;
+  background: rgba(14,14,22,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  gap: 14px;
+}
+
+.admin-dash .header-notification-icon-container {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-dash .header-notification-icon-container:hover {
+  border-color: rgba(0,212,255,0.3);
+  color: #00d4ff;
+}
+
+.admin-dash .header-username-container h3 {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.admin-dash .header-username-container h3 span {
+  color: #00d4ff;
+  font-weight: 700;
+}
+
+.admin-dash .header-userprofile-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-dash .user-p-icon-container {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(124,58,237,0.15));
+  border: 1px solid rgba(0,212,255,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00d4ff;
+  font-size: 0.85rem;
+}
+
+.admin-dash .user-p-drop-icon {
+  color: #5b6475;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.admin-dash .user-p-drop-icon:hover { color: #00d4ff; }
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+
+.admin-dash .admin-page-header {
+  padding: 32px 28px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.admin-dash .admin-page-header h3 {
+  color: #00d4ff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 6px;
+}
+
+.admin-dash .admin-page-header h2 {
+  color: #f0f2f5;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+
+.admin-dash .admin-page-header p {
+  color: #4b5563;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ============================================
+   USERS TABLE
+   — uses .admin-users-table-wrap so there is
+     zero overlap with shared dashboard CSS.
+   ============================================ */
+
+.admin-dash .admin-users-search {
+  margin: 0 28px 20px;
+  max-width: 420px;
+}
+
+.admin-dash .admin-users-table-wrap {
+  width: 100%;
+  padding: 20px 28px 40px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: #0e0e16;
+}
+
+.admin-user-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media screen and (max-width: 767px) {
+  .admin-dash .admin-users-search {
+    margin: 0 12px 16px;
+    max-width: none;
+  }
+}
+
+.admin-dash .admin-users-table {
+  border-collapse: collapse;
+  /* intrinsic width — columns expand to fit content */
+  width: auto;
+  min-width: 100%;
+  table-layout: auto;
+}
+
+.admin-dash .admin-users-table thead tr {
+  background: rgba(255,255,255,0.025);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.admin-dash .admin-users-table thead td {
+  padding: 14px 18px;
+  color: #5b6475;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+}
+
+.admin-dash .admin-users-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  transition: background 0.15s;
+}
+
+.admin-dash .admin-users-table tbody tr:hover { background: rgba(0,212,255,0.025); }
+.admin-dash .admin-users-table tbody tr:last-child { border-bottom: none; }
+
+.admin-dash .admin-users-table tbody td {
+  padding: 13px 18px;
+  color: #8a94a6;
+  font-size: 0.84rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Name columns */
+.admin-dash .admin-users-table tbody td:nth-child(1),
+.admin-dash .admin-users-table tbody td:nth-child(2) {
+  min-width: 120px;
+  color: #d1d5db;
+  font-weight: 500;
+}
+/* Email */
+.admin-dash .admin-users-table tbody td:nth-child(3) { min-width: 200px; }
+/* Username */
+.admin-dash .admin-users-table tbody td:nth-child(4) { min-width: 130px; }
+/* Deposit */
+.admin-dash .admin-users-table tbody td:nth-child(5) { min-width: 120px; color: #00e676; font-weight: 600; }
+/* Password */
+.admin-dash .admin-users-table tbody td:nth-child(6) { min-width: 150px; font-family: monospace; font-size: 0.78rem; color: #6b7280; }
+/* Action columns */
+.admin-dash .admin-users-table tbody td:nth-child(n+7) { min-width: 100px; }
+
+/* Action Buttons */
+.promo-btn, .manual-btn, .active-promo-btn, .approve-btn, .mail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  min-width: unset;
+  margin: 0;
+  text-decoration: none;
+}
+
+.admin-dash .promo-btn {
+  background: rgba(0,230,118,0.1);
+  color: #00e676;
+  border-color: rgba(0,230,118,0.18);
+}
+.admin-dash .promo-btn:hover {
+  background: rgba(0,230,118,0.18);
+  box-shadow: 0 0 12px rgba(0,230,118,0.18);
+}
+
+.admin-dash .active-promo-btn {
+  background: rgba(255,61,90,0.1);
+  color: #ff3d5a;
+  border-color: rgba(255,61,90,0.2);
+}
+.admin-dash .active-promo-btn:hover {
+  background: rgba(255,61,90,0.18);
+  box-shadow: 0 0 12px rgba(255,61,90,0.2);
+}
+
+.admin-dash .manual-btn {
+  background: rgba(0,212,255,0.08);
+  color: #00d4ff;
+  border-color: rgba(0,212,255,0.18);
+}
+.admin-dash .manual-btn:hover {
+  background: rgba(0,212,255,0.16);
+  box-shadow: 0 0 12px rgba(0,212,255,0.18);
+}
+
+.admin-dash .pdt-btn {
+  background: rgba(124,58,237,0.1);
+  color: #a78bfa;
+  border-color: rgba(124,58,237,0.22);
+}
+.admin-dash .pdt-btn:hover {
+  background: rgba(124,58,237,0.18);
+  box-shadow: 0 0 12px rgba(124,58,237,0.2);
+}
+
+.admin-dash .approve-btn {
+  background: rgba(0,212,255,0.07);
+  color: #67e8f9;
+  border-color: rgba(103,232,249,0.2);
+}
+.admin-dash .approve-btn:hover { background: rgba(0,212,255,0.14); }
+
+.admin-dash .mail-btn {
+  background: rgba(240,171,252,0.08);
+  color: #e879f9;
+  border-color: rgba(232,121,249,0.2);
+}
+.admin-dash .mail-btn:hover {
+  background: rgba(240,171,252,0.15);
+  box-shadow: 0 0 12px rgba(232,121,249,0.14);
+}
+
+/* ============================================
+   FLOATING BTN
+   ============================================ */
+
+.admin-dash .floating-btn.admin-floating-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  color: #0a0a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(0,212,255,0.4);
+  z-index: 99;
+  transition: all 0.2s;
+}
+
+.admin-dash .floating-btn.admin-floating-btn:hover {
+  box-shadow: 0 0 34px rgba(0,212,255,0.6);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   MODALS
+   ============================================ */
+
+.modal-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-dash .modal {
+  background: #111118;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 0 70px rgba(0,212,255,0.07), 0 30px 60px rgba(0,0,0,0.65);
+}
+
+.admin-dash .modal-header { margin-bottom: 24px; }
+
+.admin-dash .modal-header h2 {
+  color: #f0f2f5;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.admin-dash .close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #5b6475;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+.admin-dash .close-modal-btn:hover { color: #ff3d5a; }
+
+.admin-dash .modal-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.admin-dash .modal-input {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-dash .modal-input:focus-within {
+  border-color: rgba(0,212,255,0.4);
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.08);
+}
+
+.admin-dash .modal-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  color: #f0f2f5;
+  font-size: 0.95rem;
+}
+
+.admin-dash .modal-input input::placeholder { color: #374151; }
+
+.admin-dash .modal-input span {
+  padding: 0 16px;
+  color: #5b6475;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-left: 1px solid rgba(255,255,255,0.06);
+  letter-spacing: 0.04em;
+}
+
+.admin-dash .select-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.admin-dash .select-container label {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-dash .custom-select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: #f0f2f5;
+  font-size: 0.88rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.admin-dash .custom-select:focus { border-color: rgba(0,212,255,0.4); }
+.admin-dash .custom-select option,
+.admin-dash .custom-select optgroup { background: #1a1a26; color: #f0f2f5; }
+
+.admin-dash .modal-btn-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Close / noselect button */
+.admin-dash .noselect {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 9px;
+  color: #6b7280;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.admin-dash .noselect:hover {
+  background: rgba(255,61,90,0.08);
+  border-color: rgba(255,61,90,0.3);
+  color: #ff3d5a;
+}
+.admin-dash .noselect .icon svg { fill: currentColor; width: 11px; height: 11px; }
+
+/* Next / proceed button */
+.admin-dash .next {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  border: none;
+  border-radius: 9px;
+  color: #0a0a0f;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 0 18px rgba(0,212,255,0.25);
+}
+.admin-dash .next:hover {
+  box-shadow: 0 0 28px rgba(0,212,255,0.42);
+  opacity: 0.9;
+}
+.admin-dash .next .icon svg { fill: currentColor; width: 15px; height: 15px; }
+
+/* ============================================
+   DELETE MODAL
+   ============================================ */
+
+.admin-dash .deactivate-card {
+  background: #111118;
+  border: 1px solid rgba(255,61,90,0.14);
+  border-radius: 18px;
+  overflow: hidden;
+  max-width: 340px;
+  width: 100%;
+  box-shadow: 0 0 50px rgba(255,61,90,0.07), 0 25px 50px rgba(0,0,0,0.55);
+}
+
+.admin-dash .deactivate-card .headers { padding: 28px 24px 4px; }
+
+.admin-dash .deactivate-card .image {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,61,90,0.1);
+  border: 1px solid rgba(255,61,90,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.admin-dash .deactivate-card .image svg {
+  width: 24px;
+  height: 24px;
+  color: #ff3d5a;
+  stroke: #ff3d5a;
+}
+
+.admin-dash .deactivate-card .content { text-align: center; margin-bottom: 4px; }
+
+.admin-dash .deactivate-card .title {
+  display: block;
+  color: #f0f2f5;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.admin-dash .deactivate-card .message {
+  color: #5b6475;
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.admin-dash .deactivate-card .actions { padding: 20px 24px 24px; background: transparent; }
+
+.admin-dash .deactivate-card .desactivate {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 13px;
+  background: linear-gradient(135deg, #ff3d5a, #cc2244);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 0 18px rgba(255,61,90,0.25);
+}
+.admin-dash .deactivate-card .desactivate:hover { box-shadow: 0 0 28px rgba(255,61,90,0.42); }
+
+.admin-dash .deactivate-card .cancel {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(255,255,255,0.04);
+  color: #6b7280;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 9px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+.admin-dash .deactivate-card .cancel:hover { background: rgba(255,255,255,0.07); color: #f0f2f5; }
+
+/* ============================================
+   DROPDOWN MENU
+   ============================================ */
+
+.admin-dash .drop-down {
+  position: fixed;
+  top: 68px;
+  right: 16px;
+  background: #111118;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 8px;
+  z-index: 300;
+  min-width: 185px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,212,255,0.04);
+}
+
+.admin-dash .dropdown-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 0.855rem;
+  transition: all 0.15s;
+}
+
+.admin-dash .dropdown-tabs:hover {
+  background: rgba(0,212,255,0.07);
+  color: #00d4ff;
+}
+
+.admin-dash .dropdown-tabs p { margin: 0; text-transform: capitalize; }
+
+/* ============================================
+   CREATE TRADER
+   ============================================ */
+
+.admin-dash .create-trader-section {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 28px 28px 40px;
+  box-sizing: border-box;
+}
+
+.admin-dash .create-trader-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #0e0e16;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 36px;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.3);
+}
+
+.admin-dash .profile-picture-upload-container {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 8px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.admin-dash .profile-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  border: 2px dashed rgba(0,212,255,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2d3748;
+  font-size: 1.6rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.admin-dash .profile-circle-img { width: 100%; height: 100%; object-fit: cover; }
+
+.admin-dash .upload-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: rgba(0,212,255,0.07);
+  border: 1px solid rgba(0,212,255,0.2);
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.admin-dash .upload-icon:hover {
+  background: rgba(0,212,255,0.14);
+  box-shadow: 0 0 14px rgba(0,212,255,0.2);
+}
+
+.admin-dash .proof-input { display: none; }
+
+.admin-dash .inputForm {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  background: rgba(255,255,255,0.025);
+  transition: all 0.2s;
+}
+
+.admin-dash .inputForm:focus-within {
+  border-color: rgba(0,212,255,0.38);
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.07);
+}
+
+.admin-dash .create-trader-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f0f2f5;
+  font-size: 0.88rem;
+  padding: 0 14px;
+  height: 100%;
+}
+
+.admin-dash .create-trader-input::placeholder { color: #2d3748; }
+
+.admin-dash .submit-btn,
+.admin-dash .create-trader-form button[type="submit"] {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  border: none;
+  border-radius: 10px;
+  color: #0a0a0f;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  box-shadow: 0 0 22px rgba(0,212,255,0.25);
+  align-self: flex-end;
+  margin-top: 4px;
+}
+
+.admin-dash .submit-btn:hover,
+.admin-dash .create-trader-form button[type="submit"]:hover {
+  box-shadow: 0 0 32px rgba(0,212,255,0.42);
+  opacity: 0.9;
+}
+
+/* ============================================
+   TRADERS LOG
+   ============================================ */
+
+.admin-dash .traders-log-section {
+  width: 100%;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+.admin-dash .active-trader-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.admin-dash .videoframe-text-container.treader-header {
+  grid-column: 1 / -1;
+  padding-bottom: 4px;
+}
+
+.admin-dash .videoframe-text-container.treader-header h1 {
+  color: #f0f2f5;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.admin-dash .videoframe-text-container.treader-header .highlight { color: #00d4ff; }
+
+/* Trader Cards */
+.admin-dash .traders-card.admin-trader-card {
+  background: #0e0e16;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-dash .traders-card.admin-trader-card:hover {
+  border-color: rgba(0,212,255,0.14);
+  box-shadow: 0 0 30px rgba(0,212,255,0.04);
+}
+
+.admin-dash .admin-trader-card-delete-btn-container {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(255,61,90,0.07);
+  border: 1px solid rgba(255,61,90,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff3d5a;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-dash .admin-trader-card-delete-btn-container:hover {
+  background: rgba(255,61,90,0.14);
+  box-shadow: 0 0 12px rgba(255,61,90,0.2);
+}
+
+.admin-dash .trader-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding-right: 44px;
+}
+
+.admin-dash .trader-card-image-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(0,212,255,0.2);
+  flex-shrink: 0;
+}
+
+.admin-dash .trader-card-image { width: 100%; height: 100%; object-fit: cover; }
+
+.admin-dash .trader-card-text-container .trader-name {
+  color: #f0f2f5;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.admin-dash .trader-card-text-container .trader-description {
+  color: #5b6475;
+  font-size: 0.79rem;
+  margin: 0;
+}
+
+.admin-dash .trader-perfomance-container {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 14px;
+}
+
+.admin-dash .trader-performance {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.admin-dash .trader-performance-item { display: flex; flex-direction: column; gap: 2px; }
+
+.admin-dash .performance-label {
+  color: #4b5563;
+  font-size: 0.69rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0;
+}
+
+.admin-dash .performance-value {
+  color: #00d4ff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.admin-dash .trader-performance-btn-container { margin-left: auto; }
+
+.admin-dash .trader-card-btn {
+  padding: 9px 18px;
+  background: rgba(0,212,255,0.07);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 8px;
+  color: #00d4ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.admin-dash .trader-card-btn:hover {
+  background: rgba(0,212,255,0.14);
+  box-shadow: 0 0 12px rgba(0,212,255,0.18);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.admin-dash .page-swiper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.admin-dash .failure-page,
+.admin-dash .no-referral-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.admin-dash .failure-img { width: 110px; opacity: 0.4; }
+
+.admin-dash .failure-page p { color: #5b6475; font-size: 0.88rem; margin: 0; }
+
+.admin-dash .failure-page a {
+  color: #00d4ff;
+  font-size: 0.84rem;
+  text-decoration: none;
+  padding: 8px 20px;
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.admin-dash .failure-page a:hover { background: rgba(0,212,255,0.07); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 900px) {
+  .admin-dash .userdashboard-sidebar { width: 200px; min-width: 200px; }
+  .admin-dash .dashboardhomepage {
+    margin-left: 200px !important;
+    width: calc(100vw - 200px) !important;
+    max-width: calc(100vw - 200px) !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .admin-dash .userdashboard-sidebar { display: none; }
+  .admin-dash .dashboardhomepage {
+    margin-left: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  .admin-dash .admin-floating-btn { display: none; }
+  .admin-dash .create-trader-section { padding: 16px 12px 32px; }
+  .admin-dash .create-trader-form { padding: 24px 16px; }
+  .admin-dash .traders-log-section { padding: 16px; }
+  .admin-dash .dash-b { padding: 16px; }
+  .admin-dash .active-trader-container { grid-template-columns: 1fr; }
+  .admin-dash .admin-users-table-wrap { padding: 12px 10px 24px; }
+  .kyc-review-section { padding: 16px 12px; }
+}
+
+/* KYC review section */
+.kyc-review-section {
+  width: 100%;
+  padding: 24px;
+}
+
+.kyc-review-card {
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+.kyc-review-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.kyc-review-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3) var(--space-5);
+}
+
+.kyc-review-fields dt {
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kyc-review-fields dd {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-1);
+}
+
+.kyc-review-document {
+  width: 100%;
+  min-height: 260px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kyc-review-document img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.kyc-review-document-loading {
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(90deg, var(--color-bg-subtle) 25%, var(--color-border) 37%, var(--color-bg-subtle) 63%);
+  background-size: 400% 100%;
+  animation: kyc-review-shimmer 1.4s ease infinite;
+}
+
+@keyframes kyc-review-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.kyc-review-document-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+.kyc-review-reason-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kyc-review-reason-field label {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.kyc-review-reason-field textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  resize: vertical;
+}
+
+.kyc-review-reason-field textarea:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+@media screen and (max-width: 767px) {
+  .kyc-review-fields { grid-template-columns: 1fr; }
+}
+
+.security-page-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-4);
+}

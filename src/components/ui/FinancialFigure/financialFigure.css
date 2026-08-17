@@ -1,0 +1,21 @@
+.ui-fig {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.ui-fig--sm { font-size: var(--text-sm); }
+.ui-fig--md { font-size: var(--text-base); }
+.ui-fig--lg { font-size: var(--text-lg); }
+
+.ui-fig__glyph {
+  font-size: 0.7em;
+}
+
+/* AAA-contrast-safe text colors (see tokens.css "-text" variants) */
+.ui-fig--success { color: var(--color-success-text); }
+.ui-fig--error   { color: var(--color-error-text); }
+.ui-fig--neutral { color: var(--color-text-secondary); }

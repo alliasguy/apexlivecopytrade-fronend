@@ -1,0 +1,35 @@
+.copytrade-header{
+    text-transform: uppercase;
+}
+.forex-img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.copy-trade-section{
+    padding: 0px;
+    background-color: var(--primary-color);
+}
+.copy-trade-wrapper{
+    padding: 0px;
+}
+/* .copy-trade-text{
+    align-self: flex-start;
+} */
+.about-page-img{
+    width: 45%;
+    height: 500px;
+    object-fit: cover;
+    align-self: flex-start;
+}
+ @media screen and (max-width: 767px){
+    .about-copy-trade-section {
+        flex-direction: column-reverse;
+        width: 90%;
+    }
+    .forex-img{
+    margin-bottom: 40px;
+    object-fit: contain;
+    width: 100%;
+    }
+ }

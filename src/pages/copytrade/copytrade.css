@@ -1,0 +1,39 @@
+.copytrade-page-section{
+    width: 100%;
+    padding: 0px 0px ;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.copytrade-gap{
+    width: 100%;
+    margin: 30px 0px;
+}
+.copy-trade-card-container{
+    width: 100%;
+}
+.copy-trade-plan-section{
+    width: 90%;
+}
+@media (max-width: 990px) and (min-width: 768px) {
+    .service-card-container
+    {
+        flex-wrap: wrap;
+    }
+    .gold-card{
+        width: 350px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .gold-card {
+            width: 100%;
+            margin-top: 50px;
+        }
+    .service-card-container{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,417 @@
+header {
+    /* Deliberately sticky (not fixed) the whole time - a fixed position
+       here would render relative to whichever ancestor happens to
+       establish a containing block (e.g. an element with a mask-image,
+       filter or transform, like the hero's fade mask), which can make
+       the header stop tracking the viewport past that ancestor's
+       height. Sticky always tracks the viewport correctly on its own. */
+    position: sticky;
+    top: 0px;
+    z-index: 25;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: flex-start;
+    transition: background-color .3s ease, box-shadow .3s ease;
+    height: 60px;
+}
+
+.scroll-color {
+    background-color: rgba(10, 10, 15, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+nav {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+nav ul {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.line {
+    height: 1.5px;
+    width: 0px;
+    transition: all .3s ease;
+    background-color: var(--color-primary);
+}
+
+nav ul li:hover .line {
+    width: 100%;
+}
+
+nav ul li a {
+    color: var(--color-text);
+    text-transform: capitalize;
+    font-size: .9rem;
+    transition: color .2s ease;
+}
+
+nav ul li:hover a {
+    color: var(--color-primary-subtle);
+}
+
+.drop-down-container{
+    position: absolute;
+    top:0px;
+    background-color: transparent;
+    overflow: hidden;
+    padding-top: 45px;
+    cursor: pointer;
+    left: 0px;
+}
+.drop-wrapper{
+    background-color: var(--color-surface);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-text-secondary);
+    width: 160px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+.dropdown-link{
+    width: 100%;
+    padding: 14px 16px;
+    font-size: .8rem;
+    text-transform: capitalize;
+    transition: background-color .15s ease, color .15s ease;
+}
+.dropdown-link:hover{
+    background-color: var(--color-bg-subtle);
+    color: var(--color-primary-subtle);
+}
+.signup-btn {
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary-subtle), var(--color-primary));
+    border: none;
+    color: var(--color-text-on-primary);
+    text-transform: capitalize;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    font-weight: var(--font-weight-medium);
+    margin-top: 0px;
+    box-shadow: 0 6px 18px rgba(47, 106, 255, 0.25);
+}
+
+.signup-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+    box-shadow: 0 8px 22px rgba(47, 106, 255, 0.35);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    overflow: hidden;
+    padding-left: 10px;
+    height: 100%;
+}
+
+.txtlogo {
+    height: 60%;
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* Hamburger trigger - a plain <button> now (was a div), animates its three
+   bars into an X while the drawer is open instead of relying solely on the
+   in-drawer close button. */
+.mobile-menu-container {
+    width: 44px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.line1,
+.line2,
+.line3 {
+    width: 60%;
+    height: 2px;
+    background-color: var(--color-text-secondary);
+    margin: 3px 0px;
+    transition: transform .25s ease, opacity .25s ease, background-color .2s ease;
+}
+
+.mobile-menu-container:hover .line1,
+.mobile-menu-container:hover .line2,
+.mobile-menu-container:hover .line3 {
+    background-color: var(--color-primary-subtle);
+}
+
+.mobile-menu-container.is-active .line1 {
+    transform: translateY(5px) rotate(45deg);
+}
+.mobile-menu-container.is-active .line2 {
+    opacity: 0;
+}
+.mobile-menu-container.is-active .line3 {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+.menu-card {
+    display: none;
+}
+
+.sign-up-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-backdrop {
+    display: none;
+}
+
+@media screen and (max-width: 990px) {
+    .market-links,.analytics-links,.company-links,.trading-links {
+            width: 100%;
+            list-style: none;
+            padding: 0px;
+            margin-top: 4px;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-bg-subtle);
+            border-radius: var(--radius-sm);
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+    .market-dropdown-trigger {
+        color: var(--color-text-secondary);
+        text-transform: capitalize;
+        width: 100%;
+        text-align: left;
+        padding: 15px 10px;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: var(--radius-sm);
+        transition: background-color .2s ease, color .2s ease;
+    }
+
+    .market-dropdown {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-family: var(--font-sans);
+    }
+    .market-dropdown-trigger:hover{
+        background-color: var(--color-bg-subtle);
+        color: var(--color-text);
+    }
+
+    .market-dropdown-svg-container{
+        font-size: 1.3rem;
+        color: var(--color-text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform .2s ease;
+    }
+    .show-markets{
+        max-height: 260px;
+        transition: max-height .3s ease-in;
+    }
+    .market-dropdown-svg-container.rotate{
+        transform: rotate(180deg);
+    }
+    .overlay-close-btn-container{
+        height: 40px;
+        width: 40px;
+        border-radius: var(--radius-md);
+        background-color: var(--color-bg-subtle);
+        border: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text-secondary);
+        font-size: 1.4rem;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background-color .2s ease, color .2s ease;
+    }
+    .overlay-close-btn-container:hover{
+        background-color: var(--color-primary-bg);
+        color: var(--color-primary-subtle);
+    }
+    .logo-container {
+        padding-left: 10px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .sign-up-btn-container {
+        display: none;
+    }
+    .mobile-menu-container{
+        display: flex;
+    }
+
+    /* Dark scrim behind the drawer - fades in, closes the menu on click. */
+    .mobile-nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(5, 6, 10, 0.6);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .25s ease;
+        z-index: 29;
+    }
+    .mobile-nav-backdrop.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header {
+        height: 80px;
+    }
+    .menu-card-image-conatiner .mobile-logo{
+        height: 60px;
+        object-fit: contain;
+        margin-left: 0px;
+    }
+    .menu-card-image-conatiner{
+        width: 100%;
+        padding: 16px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+        background-color: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    /* The drawer itself - a true slide-in panel (transform, not width),
+       fixed to the viewport so it always covers the full screen height
+       regardless of scroll position, with its own scroll for long lists. */
+    .menu-card {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 82%;
+        max-width: 340px;
+        height: 100dvh;
+        background-color: var(--color-bg);
+        border-right: 1px solid var(--color-border);
+        box-shadow: var(--shadow-lg);
+        transform: translateX(-100%);
+        transition: transform .3s cubic-bezier(.32, .72, 0, 1);
+        z-index: 30;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .menu-card.is-open {
+        transform: translateX(0);
+    }
+
+    .menu-card .list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 14px 24px 14px;
+    }
+
+    .element a{
+        color: var(--color-text-secondary);
+        text-transform: capitalize;
+        width: 100%;
+        text-align: left;
+    }
+    .menu-card .list .element {
+        display: flex;
+        align-items: center;
+        color: var(--color-text-secondary);
+        transition: background-color 0.2s ease-out, color 0.2s ease-out;
+        padding: 14px 10px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: var(--radius-sm);
+    }
+
+    .menu-card .list .element:hover {
+        background-color: var(--color-bg-subtle);
+        color: var(--color-text);
+    }
+
+    .menu-card .list .element:hover a {
+        color: var(--color-text);
+    }
+
+    .menu-card .list .element:active {
+        transform: scale(0.99);
+    }
+
+    .mobile-signup-element {
+        margin-top: 10px;
+        padding-top: 14px;
+        border-top: 1px solid var(--color-border);
+    }
+    .mobile-signup-element a {
+        text-align: center;
+        padding: 12px 0;
+        border-radius: var(--radius-md);
+        background: linear-gradient(135deg, var(--color-primary-subtle), var(--color-primary));
+        color: var(--color-text-on-primary);
+        font-weight: var(--font-weight-medium);
+    }
+}
+
+@media screen and (max-width: 767px) {
+        .menu-card {
+            width: 86%;
+        }
+}

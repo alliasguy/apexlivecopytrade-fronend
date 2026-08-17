@@ -1,0 +1,30 @@
+.ui-theme-toggle {
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--space-1);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.ui-theme-toggle:hover {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+}
+
+.ui-theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.ui-theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}

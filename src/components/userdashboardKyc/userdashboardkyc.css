@@ -1,0 +1,175 @@
+.kyc-page-header {
+  margin-bottom: var(--space-5);
+}
+
+.kyc-page-header p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+}
+
+.kyc-status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+}
+
+.kyc-skeleton-shimmer {
+  background: linear-gradient(90deg, var(--color-bg-subtle) 25%, var(--color-border) 37%, var(--color-bg-subtle) 63%);
+  background-size: 400% 100%;
+  animation: kyc-shimmer 1.4s ease infinite;
+}
+
+@keyframes kyc-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kyc-skeleton-shimmer { animation: none; }
+}
+
+.kyc-skeleton-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+}
+
+.kyc-skeleton-line {
+  border-radius: var(--radius-sm);
+  height: 16px;
+}
+
+.kyc-skeleton-line--title { width: 220px; height: 22px; }
+.kyc-skeleton-line--text { width: 380px; max-width: 80vw; }
+.kyc-skeleton-line--text-short { width: 260px; max-width: 60vw; }
+
+.kyc-skeleton-badge {
+  width: 110px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  margin-top: var(--space-2);
+}
+
+.kyc-status-card h2 {
+  color: var(--color-text);
+  font-size: var(--text-lg);
+}
+
+.kyc-status-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  max-width: 420px;
+}
+
+.kyc-status-icon {
+  font-size: 2.5rem;
+}
+
+.kyc-status-icon--success { color: var(--color-success); }
+.kyc-status-icon--pending { color: var(--color-warning); }
+.kyc-status-icon--rejected { color: var(--color-error); font-size: 1.5rem; flex-shrink: 0; }
+
+.kyc-rejection-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error);
+}
+
+.kyc-rejection-title {
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-sm);
+}
+
+.kyc-rejection-reason {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
+}
+
+.kyc-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.kyc-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.kyc-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kyc-select-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.kyc-select {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+}
+
+.kyc-select:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+.kyc-upload-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  text-align: center;
+  cursor: pointer;
+  background: var(--color-bg-subtle);
+}
+
+.kyc-upload-dropzone:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.kyc-upload-dropzone svg {
+  font-size: 1.75rem;
+}
+
+.kyc-upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 767px) {
+  .kyc-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

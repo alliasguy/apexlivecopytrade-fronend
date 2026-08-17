@@ -1,0 +1,81 @@
+.landpage{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding-bottom: 0px;
+    background-color: var(--color-bg);
+    background-image:
+        radial-gradient(60% 50% at 50% 0%, rgba(47, 106, 255, 0.16) 0%, rgba(47, 106, 255, 0) 70%),
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: auto, 48px 48px, 48px 48px;
+    background-position: top, center, center;
+    background-repeat: no-repeat, repeat, repeat;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+.landpage-content-wrapper{
+    position: relative;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 110px;
+    padding-bottom: 70px;
+    margin: auto;
+}
+.landpage-text-container{
+    width: 100%;
+    max-width: 720px;
+    text-align: center;
+}
+.launch-btn-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landpage-text-container h1{
+    color: var(--color-text);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+}
+.landpage-text-container p{
+    color: var(--color-text-secondary);
+    margin: var(--space-5) auto 0 auto;
+    font-size: 1.15rem;
+    line-height: var(--leading-relaxed);
+    max-width: 540px;
+}
+.landpage-text-container button{
+  margin: var(--space-8) 0px 0px 0px;
+  align-self: center;
+}
+.landpage-highlight{
+  font-family: var(--font-sans);
+  background: linear-gradient(to right, var(--color-primary-subtle) 0%, var(--color-primary) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 767px){
+    .landpage-content-wrapper{
+        padding: 90px 0px 40px 0px;
+    }
+    .landpage-text-container{
+        text-align: center;
+        width: 100%;
+    }
+    .landpage-text-container p {
+        text-align: center;
+        width: 100%;
+    }
+    .landpage-text-container h1 {
+        width: 100%;
+        text-align: center;
+    }
+}

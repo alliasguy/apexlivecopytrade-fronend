@@ -1,0 +1,15 @@
+.transactions-page-header {
+  margin-bottom: var(--space-5);
+}
+
+.transactions-page-header p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+}
+
+.transactions-id {
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}

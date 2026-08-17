@@ -1,0 +1,178 @@
+.why-choose-section{
+    padding: 70px 0px;
+    width: 100%;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.why-choose-us-img-container{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+.mockup{
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+.card-counter{
+    position: absolute;
+    right: 24px;
+    top: 14px;
+    font-family: var(--font-sans);
+    font-size: 3rem;
+    color: var(--color-text);
+    opacity: 0.06;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    pointer-events: none;
+}
+.why-choose-us-text-container{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.why-choose-us-text-container p{
+    width: 95%;
+}
+.why-choose-us-card-container{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.why-choose-us-card{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    cursor: default;
+    padding: 28px 24px;
+    margin: 12px 0px;
+    transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+.why-choose-us-card:hover{
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+.why-choose-us-card h2{
+    font-weight: var(--font-weight-medium);
+    align-self: flex-start;
+    color: var(--color-text);
+    margin: 14px 0px 10px 0px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+.why-choose-us-card p{
+    color: var(--color-text-secondary);
+    text-align: left;
+    align-self: flex-start;
+}
+.why-choose-us-card > svg{
+    align-self: flex-start;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    background: var(--color-primary-bg);
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+    box-sizing: content-box;
+    border-radius: var(--radius-md);
+}
+
+/* Compact stat tiles (statistics band) - replaces the old "outer/dot/ray"
+   glow-card treatment, which relied on an animated floating particle. */
+.stat-card-container{
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.stat-card{
+    flex: 1 1 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: 24px 20px;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-base), transform var(--transition-base);
+}
+.stat-card:hover{
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+.stat-card-value{
+    font-family: var(--font-sans);
+    font-size: 2.25rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    background: linear-gradient(to right, var(--color-primary-subtle) 0%, var(--color-primary) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.stat-card-label{
+    color: var(--color-text-secondary);
+    font-size: .85rem;
+    text-transform: capitalize;
+}
+
+@media (max-width: 990px) and (min-width: 768px){
+    .why-choose-us-text-container p{
+        width: 90%;
+    }
+    .why-choose-us-card-container, .stat-card-container{
+        flex-wrap: wrap;
+    }
+    .why-choose-us-card{
+        width: 100%;
+        margin-top: 20px;
+    }
+   }
+   @media screen and (max-width: 767px){
+    .why-choose-us-text-container p{
+        width: 100%;
+    }
+    .why-choose-us-card-container, .stat-card-container{
+        flex-direction: column;
+        width: 95%;
+    }
+    .why-choose-us-card {
+        width: 100%;
+        margin: 12px 0px;
+    }
+    .stat-card{
+        width: 100%;
+    }
+    .why-choose-us-text-container h1{
+        margin: 10px 0px;
+        width: 100%;
+    }
+    .why-choose-section {
+         flex-direction: column;
+     }
+     .why-choose-us-img-container{
+        width: 100%;
+     }
+   }
