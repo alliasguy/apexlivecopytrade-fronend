@@ -1,6 +1,5 @@
 // TeslaWidget.jsx
 import React, { useEffect, useRef, memo } from 'react';
-import { useTheme } from '../context/ThemeContext';
 
 const SYMBOLS = [
   ["Apple", "AAPL|1D"],
@@ -24,12 +23,11 @@ const SYMBOLS = [
 
 const TeslaWidget = ({ backgroundColor }) => {
   const containerRef = useRef(null);
-  const { theme } = useTheme();
 
   useEffect(() => {
-    // TradingView bakes colorTheme/backgroundColor into the widget at
-    // creation time - there's no way to re-theme it live, so a theme
-    // change has to tear down and recreate the whole embed.
+    // Always dark, regardless of the site's light/dark toggle - this
+    // widget (like every other embedded crypto/market widget) never
+    // switches to a light background.
     if (!containerRef.current) return;
     containerRef.current.innerHTML = '<div class="tradingview-widget-container__widget"></div><div class="tradingview-widget-copyright"></div>';
 
@@ -39,7 +37,7 @@ const TeslaWidget = ({ backgroundColor }) => {
       width: "100%",
       height: "100%",
       locale: "en",
-      colorTheme: theme,
+      colorTheme: "dark",
       autosize: false,
       showVolume: false,
       showMA: false,
@@ -58,7 +56,7 @@ const TeslaWidget = ({ backgroundColor }) => {
       maLineWidth: 1,
       maLength: 9,
       headerFontSize: "medium",
-      backgroundColor: theme === 'dark' ? (backgroundColor || "rgba(17, 17, 24, 1)") : "rgba(255, 255, 255, 1)",
+      backgroundColor: backgroundColor || "rgba(10, 10, 15, 1)",
       lineWidth: 2,
       lineType: 0,
       dateRanges: ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"],
@@ -70,7 +68,7 @@ const TeslaWidget = ({ backgroundColor }) => {
     script.async = true;
     script.innerHTML = JSON.stringify(config);
     containerRef.current.appendChild(script);
-  }, [theme]);
+  }, []);
 
   return (
     <div className="tradingview-widget-container" ref={containerRef}>

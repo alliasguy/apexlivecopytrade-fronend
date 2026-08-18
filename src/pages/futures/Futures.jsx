@@ -73,9 +73,9 @@ const Futures = () => {
                       </div>
                   </div>
             </section>
-      </div>
       <Contact />
       <Footer />
+      </div>
       </>
   )
 }

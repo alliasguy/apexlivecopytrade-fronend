@@ -42,9 +42,9 @@ const TechnicalAnalysisPage = () => {
                     </div>
                   </section>
                 </div>
-      </div>
       <Contact />
       <Footer />
+      </div>
       </>
   )
 }

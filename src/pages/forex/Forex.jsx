@@ -72,9 +72,9 @@ const Forex = () => {
                       </div>
                   </div>
             </section>
-      </div>
       <Contact />
       <Footer />
+      </div>
       </>
   )
 }

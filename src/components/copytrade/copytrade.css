@@ -5,10 +5,12 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
 }
 .copy-trade-section{
     padding: 0px;
-    background-color: var(--primary-color);
+    background-color: var(--color-bg);
 }
 .copy-trade-wrapper{
     padding: 0px;

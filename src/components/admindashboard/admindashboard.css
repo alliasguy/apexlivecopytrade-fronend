@@ -84,134 +84,88 @@
    LOGIN
    ============================================ */
 
-.admin-dash .login-wrapper {
+.admin-login {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0a0f;
+  overflow: hidden;
+  background: #05050a;
+}
+
+.admin-login__grid {
+  position: absolute;
+  inset: 0;
   background-image:
-    radial-gradient(ellipse at 15% 50%, rgba(124,58,237,0.09) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 50%, rgba(0,212,255,0.07) 0%, transparent 55%);
+    linear-gradient(rgba(0, 212, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000 0%, transparent 75%);
 }
 
-.admin-dash .form {
-  background: #111118;
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 22px;
-  padding: 44px 40px;
+.admin-login__card {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 70px rgba(0,212,255,0.06), 0 30px 60px rgba(0,0,0,0.55);
-}
-
-.admin-dash .login-logo {
-  width: 130px;
-  margin: 0 auto 28px;
-  display: block;
-}
-
-.admin-dash .title_container {
+  max-width: 400px;
+  margin: 24px;
+  padding: 44px 40px;
   text-align: center;
-  margin-bottom: 32px;
+  background: rgba(17, 17, 24, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 0 80px rgba(0, 212, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
-.admin-dash .titles {
+.admin-login__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
+  color: #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 14px;
+}
+
+.admin-login__card h1 {
+  font-size: 1.35rem;
   font-weight: 700;
   color: #f0f2f5;
-  text-transform: capitalize;
-  margin: 0 0 8px;
+  text-transform: none;
+  margin-bottom: 6px;
 }
 
-.admin-dash .subtitle {
-  font-size: 0.84rem;
+.admin-login__card > p {
+  font-size: 0.82rem;
   color: #6b7280;
-  line-height: 1.55;
+  margin-bottom: 28px;
 }
 
-.admin-dash .input_containers {
-  position: relative;
-  margin-bottom: 18px;
+.admin-login__card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
 }
 
-.admin-dash .input_labels {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #9ca3af;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.admin-dash .icont {
-  position: absolute;
-  left: 14px;
-  bottom: 13px;
-  pointer-events: none;
-}
-
-.admin-dash .icont path { stroke: #4b5563 !important; }
-
-.admin-dash .input_field {
-  width: 100%;
-  height: 48px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 11px;
-  color: #f0f2f5;
-  font-size: 0.92rem;
-  padding: 0 44px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  box-sizing: border-box;
-}
-
-.admin-dash .input_field::placeholder { color: #374151; }
-
-.admin-dash .input_field:focus {
-  border-color: #00d4ff;
-  box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
-}
-
-.admin-dash .eye-container {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
+.admin-login__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  font-size: 0.8rem;
   color: #6b7280;
-  cursor: pointer;
-  font-size: 1.1rem;
   transition: color 0.2s;
 }
 
-.admin-dash .eye-container:hover { color: #00d4ff; }
-
-.admin-dash .form > button[type="submit"] {
-  width: 100%;
-  height: 50px;
-  background: linear-gradient(135deg, #00d4ff, #0099cc);
-  border: none;
-  border-radius: 11px;
-  color: #0a0a0f;
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
-  box-shadow: 0 0 24px rgba(0,212,255,0.3);
-}
-
-.admin-dash .form > button[type="submit"]:hover {
-  opacity: 0.88;
-  box-shadow: 0 0 36px rgba(0,212,255,0.5);
-}
-
-.admin-dash .form > button[type="submit"]:active { transform: scale(0.98); }
+.admin-login__back:hover { color: #00d4ff; }
 
 /* ============================================
    DASHBOARD LAYOUT

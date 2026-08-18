@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from '../components/Header/Header'
 import Landpage from '../components/Landpage/Landpage'
 import Why from '../components/why/Why'
 import Plan from '../components/plans/Plan'
@@ -16,18 +17,19 @@ import Mt5Section from '../components/mt5/Mt5Section'
 const Home = () => {
   return (
     <main className='home-img'>
+      <Header />
       <Landpage />
-      <Videoframe />
-      <TeslaWidgetContainer />
       <Faqcard />
+      <CryptoNewsContainer />
+      <TeslaWidgetContainer />
+      <ForexAnalysisSection />
       <Why />
       <Plan />
-      <About />
-      <Review />
-      <CryptoNewsContainer />
-      <ForexAnalysisSection />
       <Mt5Section />
+      <About />
       <Faq />
+      <Videoframe />
+      <Review />
       <Contact />
       <Footer />
     </main>

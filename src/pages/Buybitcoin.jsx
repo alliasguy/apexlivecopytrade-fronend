@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from '../components/Header/Header'
-import About from '../components/about/About'
 import Footer from '../components/footer/Footer'
 import Contact from '../components/contact/Contact'
 
@@ -11,8 +10,10 @@ const Buybitcoin = () => {
     <Header />
       <section className='about-landpage bitcoin-lanpage'>
         <div className="about-page-text">
+          <span className="page-hero-eyebrow">get started</span>
           <h3>ready to buy bitcoin?</h3>
           <span className="small-thin-line"></span>
+          <p>A shortlist of trusted, thoroughly vetted exchanges where you can securely buy Bitcoin and other cryptocurrencies.</p>
         </div>
       </section>
       <section className='bitcoin-card-container'>
@@ -31,11 +32,8 @@ const Buybitcoin = () => {
                 Join the leading peer-to-peer platform to buy and sell Bitcoin using 350+ payment methods with 10 million people just like you.
               </p>
             <a href="https://paxful.com/roots/buy-bitcoin" target='blank'>
-            <button class="learn-more">
-              <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Buy Now</span>
+            <button className="launch-btn">
+              <span>Buy Now</span>
             </button>
             </a>
           </div>
@@ -47,11 +45,8 @@ const Buybitcoin = () => {
             <p>Buy & sell crypto instantly
               Join the world’s friendliest, most reliable, secure and one of the most patronized crypto exchange platform in the world.</p>
             <a href="https://coinmama.com" target='blank'>
-            <button class="learn-more">
-              <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Buy Now</span>
+            <button className="launch-btn">
+              <span>Buy Now</span>
             </button>
             </a>
           </div>
@@ -63,11 +58,8 @@ const Buybitcoin = () => {
             <p>Take back control of your money. The future is crypto.
               Buy cryptocurrencies with maximum security and in the easiest way</p>
             <a href="https://bit2me.com/en/" target="_blank" rel="noopener noreferrer">
-            <button class="learn-more">
-              <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Buy Now</span>
+            <button className="launch-btn">
+              <span>Buy Now</span>
             </button>
             </a>
           </div>
@@ -78,11 +70,8 @@ const Buybitcoin = () => {
             <h2>coinmate</h2>
             <p>Cryptocurrencies can change our world more than the internet. We're still at the very beginning, like the internet in the '90s. Who wouldn't want to buy stocks like Google, Amazon or Apple for a fraction of today's prices? We offer an easy and secure way to get a share of this unique investment opportunity.</p>
             <a href="https://coinmate.io/home" target="_blank" rel="noopener noreferrer">
-            <button class="learn-more">
-              <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Buy Now</span>
+            <button className="launch-btn">
+              <span>Buy Now</span>
             </button>
             </a>
           </div>
@@ -93,11 +82,8 @@ const Buybitcoin = () => {
             <h2>binance</h2>
             <p>Buy, trade, and hold 350+ cryptocurrencies on Binance. Binance is one of the most notable and reliable crypto trading platforms. You can also buy and sell bitcoin there.</p>
             <a href="https://binance.com" target="_blank" rel="noopener noreferrer">
-            <button class="learn-more">
-              <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Buy Now</span>
+            <button className="launch-btn">
+              <span>Buy Now</span>
             </button>
             </a>
           </div>
@@ -105,8 +91,8 @@ const Buybitcoin = () => {
         </div>
       </section>
       <Contact />
-      </main>
       <Footer />
+      </main>
       </>
   )
 }

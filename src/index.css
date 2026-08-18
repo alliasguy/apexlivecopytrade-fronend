@@ -48,10 +48,13 @@ body {
    "dark" + isTransparent, but that only makes the widget's own chart
    canvas transparent - the housing div still needs an explicit dark fill
    so there's no light flash/gap while the iframe loads or around edges
-   the widget doesn't fully cover. */
+   the widget doesn't fully cover. This is a fixed dark value (not
+   var(--color-bg)) on purpose: these widgets are always dark themed
+   regardless of the site's own light/dark toggle, so the housing div
+   must stay dark even when the rest of the page is in light mode. */
 .tradingview-widget-container,
 .tradingview-widget-container__widget {
-  background-color: var(--color-bg);
+  background-color: #0a0a0f;
 }
 
 .highlight{

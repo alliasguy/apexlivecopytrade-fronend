@@ -72,7 +72,9 @@ const Header = () => {
                             className="relative"
                             onMouseEnter={() => item.dropdown.length > 0 && setOpenDropdown(index)}
                             onMouseLeave={(e) => {
-                                if (!e.relatedTarget || !e.relatedTarget.closest(".drop-down-container")) {
+                                const related = e.relatedTarget;
+                                const isInsideDropdown = related instanceof Element && related.closest(".drop-down-container");
+                                if (!isInsideDropdown) {
                                     setOpenDropdown(null);
                                 }
                             }}>

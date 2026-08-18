@@ -109,8 +109,9 @@
 .small-thin-line {
     margin: 20px 0px;
     width: 50px;
-    height: 2px;
-    background-color: whitesmoke;
+    height: 3px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(to right, var(--color-primary-subtle), var(--color-primary));
 }
 
 @media (max-width: 990px) and (min-width: 768px) {

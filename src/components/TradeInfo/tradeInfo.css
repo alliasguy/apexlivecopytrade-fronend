@@ -15,42 +15,44 @@
 
 .forex-card {
     width: 34%;
-    background: var(--primary-color);
-    border: 1px solid hsl(0, 0%, 18%);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: left;
-    backdrop-filter: blur(10px);
-    transition: 0.5s ease-in-out;
-    padding: 40px 10px;
+    transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+    padding: 32px 20px;
     align-self: flex-start;
 }
 
 .forex-card:hover {
     cursor: pointer;
-    transform: scale(1.05);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 .forex-card .img {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    margin-right: 16px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 .forex-card .img svg{
-    font-size: 3rem;
-    color: #A7CFDF;
-}
-.forex-card:hover >.img {
-    transition: 0.5s ease-in-out;
-    
+    font-size: 1.4rem;
+    color: var(--color-primary);
 }
 
 .forex-card .textBox {
-    width: calc(100% - 90px);
-    margin-left: 10px;
-    color: var(--dark);
-    font-family: 'Poppins' sans-serif;
+    width: calc(100% - 60px);
+    color: var(--color-text);
+    font-family: var(--font-sans);
 }
 
 .forex-card .textContent {
@@ -66,14 +68,14 @@
 
 .forex-card .h1 {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: var(--font-weight-semibold);
 }
 
 .forex-card .p {
-    font-size: 12px;
-    font-weight: lighter;
+    font-size: 13px;
     text-align: left;
-    color: grey;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
 }
  @media (max-width: 990px) and (min-width: 768px) {
      

@@ -5,11 +5,11 @@ import Footer from '../../components/footer/Footer'
 import ForexAnalysisSection from '../../components/ForexAnalysisSection/ForexAnalysisSection'
 import Contact from '../../components/contact/Contact'
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const CopytradePage = () => {
   const navigate = useNavigate()
-      const [withdrawMethods,setWithdrawalMethods] = useState([
+      const [withdrawMethods] = useState([
         {
           id:1,
           min:'500',
@@ -62,7 +62,7 @@ const CopytradePage = () => {
             <div class="pack-header">
                   <h3>{withdrawmethod.type}</h3>
                   <h2>$ {withdrawmethod.min}</h2>
-                  <button className='plan-card-btn'>
+                  <button className='plan-card-btn' onClick={() => navigate('/signup')}>
                     <p>Subscribe</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -100,9 +100,9 @@ const CopytradePage = () => {
           </div>
         </div>
         <ForexAnalysisSection />
-      </section>
       <Contact />
       <Footer />
+      </section>
       </>
   )
 }

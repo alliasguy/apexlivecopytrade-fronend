@@ -43,9 +43,8 @@ const Policy = () => {
       </div>
       <About />
       <Contact />
-      
-      </main>
       <Footer />
+      </main>
       </>
   )
 }

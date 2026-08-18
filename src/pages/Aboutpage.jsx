@@ -8,7 +8,6 @@ import ForexAnalysisSection from '../components/ForexAnalysisSection/ForexAnalys
 import Copytrade from '../components/copytrade/Copytrade'
 import Why from '../components/why/Why'
 import TradeInfo from '../components/TradeInfo/TradeInfo'
-import {motion} from 'framer-motion'
 const Aboutpage = () => {
   return (
     <>
@@ -16,11 +15,10 @@ const Aboutpage = () => {
     <Header />
       <section className='about-landpage my-about'>
         <div className="about-page-text">
-          {/* <motion.div className="landpage-header">
-              <motion.span className="landpage-line"></motion.span>
-              <motion.div className="site-name"><span className="highlight"> ABOUT APEXLIVECOPYTRADE</span></motion.div>
-              <motion.span className="landpage-line"></motion.span>
-          </motion.div> */}
+          <span className="page-hero-eyebrow">about us</span>
+          <h3>About <span className="highlight">Apexlivecopytrade</span></h3>
+          <span className="small-thin-line"></span>
+          <p>We connect everyday investors with top-performing traders across forex, crypto, indices and futures - so you can copy proven strategies instead of guessing.</p>
         </div>
       </section>
       <Copytrade />
@@ -29,8 +27,8 @@ const Aboutpage = () => {
       <About />
       <ForexAnalysisSection />
       <Contact />
-    </main>
-    <Footer /></>
+      <Footer />
+    </main></>
   )
 }
 

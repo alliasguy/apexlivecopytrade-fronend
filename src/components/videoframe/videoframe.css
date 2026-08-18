@@ -25,12 +25,13 @@
 }
 .videoframe-text-container h1{
     font-size: 4rem;
-    color: white;
-    font-weight: 600;
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
 }
 .videoframe-text-container p{
     width: 70%;
     text-align: center;
+    color: var(--color-text-secondary);
 }
  @media screen and (max-width: 767px) {
     .video-wrapper .video{

@@ -88,9 +88,9 @@ const Terms = () => {
                 </div>
               </div>
             </div>
-      </div>
       <Contact />
       <Footer />
+      </div>
         </>
   )
 }

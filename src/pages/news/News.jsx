@@ -48,9 +48,9 @@ const News = () => {
               </div>
         </section>
         </div>
-      </div>
       <Contact />
       <Footer />
+      </div>
       </>
   )
 }

@@ -1,15 +1,11 @@
 import React from 'react'
 import './landpage.css'
-import Header from '../Header/Header'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import Tickertape from '../Tickertape'
 const Landpage = () => {
     const navigate= useNavigate()
   return (
       <main className='landpage' >
-          <Header />
-          
         <div className='landpage-content-wrapper'>
            
               <motion.div className="landpage-text-container">
@@ -42,8 +38,6 @@ const Landpage = () => {
               </motion.div>
               
           </div>
-          
-          <Tickertape />
     </main>
   )
 }

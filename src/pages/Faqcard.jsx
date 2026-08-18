@@ -1,5 +1,6 @@
 import React from 'react'
 import CountUp from 'react-countup'
+import { FiUsers, FiGlobe, FiRepeat } from 'react-icons/fi'
 const Faqcard = () => {
   return (
     <div className='why-choose-section stat-section'>
@@ -21,14 +22,17 @@ const Faqcard = () => {
         </div>
             <div className="stat-card-container">
               <div className="stat-card" data-aos="fade-up">
+                <span className="stat-card-icon"><FiUsers /></span>
                 <div className="stat-card-value"><CountUp end={973} enableScrollSpy scrollSpyOnce />k</div>
                 <div className="stat-card-label">active traders</div>
               </div>
               <div className="stat-card" data-aos="fade-up">
+                <span className="stat-card-icon"><FiGlobe /></span>
                 <div className="stat-card-value"><CountUp end={186} enableScrollSpy scrollSpyOnce /></div>
                 <div className="stat-card-label">supported countries</div>
               </div>
               <div className="stat-card" data-aos="fade-up">
+                <span className="stat-card-icon"><FiRepeat /></span>
                 <div className="stat-card-value"><CountUp end={152} enableScrollSpy scrollSpyOnce />k</div>
                 <div className="stat-card-label">transactions</div>
               </div>

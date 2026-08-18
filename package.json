@@ -1,6 +1,7 @@
 {
-  "name": "wealthflow",
+  "name": "apexlivecopytrade",
   "version": "0.1.0",
+  "description": "Apexlivecopytrade - a peer-to-peer copytrading platform that lets investors mirror expert traders across forex, crypto, indices and futures in real time.",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.10.0",

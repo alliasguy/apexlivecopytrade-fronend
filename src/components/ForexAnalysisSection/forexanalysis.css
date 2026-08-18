@@ -19,9 +19,20 @@
     justify-content: space-around;
     flex-direction: column;
     height: 650px;
-    border: 1px solid hsl(0, 0%, 18%);
-    border-radius: 20px;
+    /* Always dark, regardless of the site's light/dark toggle - these
+       cards house TradingView embeds which are always dark themed, so
+       the card chrome has to match rather than flip to a white surface
+       in light mode. */
+    background-color: #0a0a0f;
+    border: 1px solid #23232f;
+    border-radius: var(--radius-xl);
     padding: 20px 10px;
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.trading-view-card:hover{
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
 }
 .trading-view-card-text-container{
      text-align: left;
@@ -30,12 +41,12 @@
      margin-bottom: 40px;
 }
 .trading-view-card-text-container h1{
-    color: white;
-    font-weight: 400;
+    color: #ffffff;
+    font-weight: var(--font-weight-medium);
     margin-bottom: 15px;
 }
 .trading-view-card-text-container p{
-    color: var(--mild-color);
+    color: #94a3b8;
 }
 @media (max-width: 990px) {
     .trading-view-forex-wrapper{

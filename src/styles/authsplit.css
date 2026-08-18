@@ -1,0 +1,276 @@
+/*
+  Split-screen auth shell for Login/Signup - a brand panel + a form panel,
+  replacing the old floating centered card. Deliberately its own
+  stylesheet and class names (not page.css's .login-wrapper/.form/
+  .input_containers), so nothing else on the site is affected by it.
+*/
+
+.auth-split {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  background: var(--color-bg);
+}
+
+/* ---------- Brand panel ---------- */
+
+.auth-split__brand {
+  position: relative;
+  flex: 1 1 46%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 48px 56px;
+  color: #ffffff;
+  background: linear-gradient(160deg, var(--color-primary-hover) 0%, var(--color-primary) 55%, var(--color-primary-subtle) 100%);
+}
+
+.auth-split__brand::before,
+.auth-split__brand::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.auth-split__brand::before {
+  width: 420px;
+  height: 420px;
+  top: -140px;
+  right: -160px;
+}
+
+.auth-split__brand::after {
+  width: 280px;
+  height: 280px;
+  bottom: -120px;
+  left: -100px;
+  background: rgba(10, 10, 15, 0.12);
+}
+
+.auth-split__brand-top,
+.auth-split__brand-headline,
+.auth-split__brand-points,
+.auth-split__brand-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-split__brand-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.auth-split__brand-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.auth-split__brand-name {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+.auth-split__brand-headline {
+  font-family: var(--font-sans);
+  font-size: 2.35rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  max-width: 420px;
+  margin: 48px 0;
+}
+
+.auth-split__brand-points {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 32px;
+}
+
+.auth-split__brand-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.auth-split__brand-point-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.auth-split__brand-point-text strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 2px;
+}
+
+.auth-split__brand-point-text span {
+  font-size: 0.82rem;
+  opacity: 0.82;
+  line-height: 1.4;
+}
+
+.auth-split__brand-footer {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+/* ---------- Form panel ---------- */
+
+.auth-split__form-panel {
+  flex: 1 1 54%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow-y: auto;
+}
+
+.auth-split__form-inner {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-split__mobile-logo {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.auth-split__mobile-logo img {
+  height: 32px;
+  width: auto;
+}
+
+.auth-split__mobile-logo span {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.auth-split__form-header {
+  margin-bottom: 28px;
+}
+
+.auth-split__form-header h1 {
+  font-size: 1.65rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.auth-split__form-header p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.auth-split__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-split__row {
+  display: flex;
+  gap: 12px;
+}
+
+.auth-split__row > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.auth-split__row-single {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-split__remember {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.auth-split__remember label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.auth-split__remember input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.auth-split__remember a {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.auth-split__footer-link {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.auth-split__footer-link a {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.auth-split__terms {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.auth-split__terms a {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 900px) {
+  .auth-split__brand {
+    display: none;
+  }
+  .auth-split__mobile-logo {
+    display: flex;
+  }
+  .auth-split__form-panel {
+    padding: 32px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .auth-split__row {
+    flex-direction: column;
+  }
+}

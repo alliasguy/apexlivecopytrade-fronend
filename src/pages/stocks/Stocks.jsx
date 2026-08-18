@@ -73,9 +73,9 @@ const Stocks = () => {
                       </div>
                   </div>
             </section>
-      </div>
       <Contact />
       <Footer />
+      </div>
       </>
   )
 }
