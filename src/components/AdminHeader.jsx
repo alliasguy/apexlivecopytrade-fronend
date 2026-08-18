@@ -2,18 +2,13 @@ import React , {useState,useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { GrLineChart } from "react-icons/gr";
-import { FiAward } from "react-icons/fi";
-import { GrTransaction } from "react-icons/gr";
 import { MdAddchart } from "react-icons/md";
 import { AiOutlineSafety } from "react-icons/ai";
-import {RiLuggageDepositLine} from 'react-icons/ri'
-import {AiOutlineSetting,AiOutlineStock} from 'react-icons/ai'
 import {RiLockPasswordLine} from 'react-icons/ri'
 import {FiLogOut} from 'react-icons/fi'
 import {AiOutlineClose} from 'react-icons/ai'
-import {GiReceiveMoney} from 'react-icons/gi'
-import {RxDashboard} from 'react-icons/rx'
-import {FaUserFriends,FaRegChartBar} from 'react-icons/fa'
+import {FaRegChartBar} from 'react-icons/fa'
+import {FiMenu} from 'react-icons/fi'
 import { jwtDecode } from 'jwt-decode'
 const AdminHeader = ({route,openCreateTrader,openTraderLogs,openUsers,openKycReview,openSecurity}) => {
     const navigate = useNavigate()
@@ -59,11 +54,21 @@ const AdminHeader = ({route,openCreateTrader,openTraderLogs,openUsers,openKycRev
     window.addEventListener('scroll', changeOnScroll)
   return (
     <>
+        <button
+            type="button"
+            className="admin-mobile-menu-trigger"
+            aria-label="Open admin menu"
+            onClick={()=>{ setDropDown(true) }}
+        >
+            <FiMenu />
+        </button>
         {
             dropDown &&
-            <div className="drop-down" onBlur={()=>{
-                setDropDown(false)
-            }}>
+            <div className="admin-mobile-nav-backdrop" onClick={()=>{ setDropDown(false) }}></div>
+        }
+        {
+            dropDown &&
+            <div className="drop-down">
                 <div className="dropdown-tabs" onClick={()=>{
                    setDropDown(false)
                 }}>
@@ -81,56 +86,48 @@ const AdminHeader = ({route,openCreateTrader,openTraderLogs,openUsers,openKycRev
                 </div>
                 <div className="mobile-tabs">
                 <div className="dropdown-tabs" onClick={()=>{
-                    navigate('/dashboard')
+                    openUsers()
+                    setDropDown(false)
                 }}>
-                    <RxDashboard />
-                    <p>dashboard</p>
+                    <AiOutlineAppstoreAdd />
+                    <p>home</p>
                 </div>
                 <div className="dropdown-tabs" onClick={()=>{
-                    navigate('/fundwallet')
+                    openCreateTrader()
+                    setDropDown(false)
                 }}>
-                    <GiReceiveMoney />
-                    <p>deposit</p>
+                    <MdAddchart />
+                    <p>create trader</p>
                 </div>
                 <div className="dropdown-tabs" onClick={()=>{
-                    navigate('/plans')
+                    openTraderLogs()
+                    setDropDown(false)
                 }}>
-                    <AiOutlineStock />
-                    <p>select plan</p>
+                    <FaRegChartBar />
+                    <p>traders log</p>
                 </div>
                 <div className="dropdown-tabs" onClick={()=>{
-                    navigate('/withdraw')
+                    openKycReview()
+                    setDropDown(false)
                 }}>
-                    <RiLuggageDepositLine />
-                    <p>withdraw</p>
+                    <AiOutlineSafety />
+                    <p>KYC review</p>
                 </div>
                 <div className="dropdown-tabs" onClick={()=>{
-                    navigate('/referrals')
-                }}>
-                    <FaUserFriends />
-                    <p>referral</p>
-                </div>
-                </div>
-                <div className="dropdown-tabs" onClick={()=>{
-                    navigate('/myprofile')
-                }}>
-                    <AiOutlineSetting />
-                    <p>profile setting</p>
-                </div>
-                <div className="dropdown-tabs" onClick={()=>{
-                    navigate('/myprofile')
+                    openSecurity()
+                    setDropDown(false)
                 }}>
                     <RiLockPasswordLine />
-                    <p>kyc</p>
+                    <p>security</p>
                 </div>
-                
+                </div>
                 <div className="dropdown-tabs" onClick={()=>{
                    logout()
                 }}>
                     <FiLogOut />
                     <p>logout</p>
                 </div>
-                
+
             </div>
         }
         <aside  className='userdashboard-sidebar'>
