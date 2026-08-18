@@ -22,6 +22,8 @@ import { GiReceiveMoney } from 'react-icons/gi'
 import { RxDashboard } from 'react-icons/rx'
 import { AiOutlineClose } from 'react-icons/ai'
 import { FiCheckCircle, FiXCircle, FiFileText, FiSearch, FiMoreVertical, FiShield, FiMail, FiLock } from 'react-icons/fi'
+import { AiOutlineSafety } from 'react-icons/ai'
+import { RiLockPasswordLine } from 'react-icons/ri'
 import { Badge, Button, Card, Input, Modal, Table, toast } from '../ui'
 
 const KYC_STATUS_TONE = { pending: 'warning', approved: 'success', rejected: 'error' }
@@ -767,6 +769,18 @@ const Admindashboard = ({ route }) => {
           }}>
             <GiReceiveMoney />
             <p>update logs</p>
+          </div>
+          <div className="dropdown-tabs" onClick={() => {
+            openKycReview()
+          }}>
+            <AiOutlineSafety />
+            <p>KYC review</p>
+          </div>
+          <div className="dropdown-tabs" onClick={() => {
+            openSecurity()
+          }}>
+            <RiLockPasswordLine />
+            <p>security</p>
           </div>
           <div className="dropdown-tabs" onClick={() => {
             logout()

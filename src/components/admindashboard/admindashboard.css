@@ -425,10 +425,11 @@
 
 .admin-dash .admin-users-table-wrap {
   width: 100%;
-  padding: 20px 28px 40px;
+  max-height: 560px;
+  padding: 0 28px 28px;
   box-sizing: border-box;
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.06);
@@ -457,8 +458,11 @@
 }
 
 .admin-dash .admin-users-table thead tr {
-  background: rgba(255,255,255,0.025);
+  background: #101018;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .admin-dash .admin-users-table thead td {
@@ -1204,7 +1208,7 @@
   .admin-dash .traders-log-section { padding: 16px; }
   .admin-dash .dash-b { padding: 16px; }
   .admin-dash .active-trader-container { grid-template-columns: 1fr; }
-  .admin-dash .admin-users-table-wrap { padding: 12px 10px 24px; }
+  .admin-dash .admin-users-table-wrap { max-height: 65vh; padding: 0 10px 16px; }
   .kyc-review-section { padding: 16px 12px; }
 }
 
