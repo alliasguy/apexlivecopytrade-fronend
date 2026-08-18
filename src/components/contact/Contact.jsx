@@ -13,9 +13,9 @@ const Contact = () => {
             <p data-aos="fade-up">
                 Have a question? Send us a message and we'll respond right away.
             </p>
-            <a href='mailto:support@apexlivecopytrade.com' className="contact-email-btn" data-aos="fade-up">
+            <a href='mailto:support@apexlivecopytrade.org' className="contact-email-btn" data-aos="fade-up">
                 <FiMail />
-                <span>support@apexlivecopytrade.com</span>
+                <span>support@apexlivecopytrade.org</span>
             </a>
         </div>
     </div>

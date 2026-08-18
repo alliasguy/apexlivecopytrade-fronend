@@ -129,7 +129,7 @@ const Admindashboard = ({ route }) => {
           'name': `${res.name}`,
           'email': `${res.email}`,
           'message': `${res.message}`,
-          'reply_to': `support@apexlivecopytrade.com`,
+          'reply_to': `support@apexlivecopytrade.org`,
           'subject': `${res.subject}`
         }
       };
@@ -152,7 +152,7 @@ const Admindashboard = ({ route }) => {
             'name': `${res.uplineName}`,
             'email': `${res.uplineEmail}`,
             'message': `${res.uplineMessage}`,
-            'reply_to': `support@apexlivecopytrade.com`,
+            'reply_to': `support@apexlivecopytrade.org`,
             'subject': `${res.uplineSubject}`
           }
         };
@@ -247,7 +247,7 @@ const Admindashboard = ({ route }) => {
           'name': `${name}`,
           'email': `${activeEmail}`,
           'message': `Congratulations! your withdrawal $${awaitedData.amount} has been approved. confirm withdrawal of $${awaitedData.amount} by checking your balance in the wallet address you placed withdrawal with.`,
-          'reply_to': `support@apexlivecopytrade.com`,
+          'reply_to': `support@apexlivecopytrade.org`,
           'subject': `successful withdrawal`
         }
       };

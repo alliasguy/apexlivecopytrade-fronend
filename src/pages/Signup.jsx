@@ -146,9 +146,9 @@ const Signup = ({ route }) => {
         user_id: '9tExDeSYFXDcRcM_q',
         template_params: {
           'name': `Bro`,
-          'email': `support@apexlivecopytrade.com`,
+          'email': `support@apexlivecopytrade.org`,
           'message': `${result.message}`,
-          'reply_to': `support@apexlivecopytrade.com`,
+          'reply_to': `support@apexlivecopytrade.org`,
           'subject': `${result.adminSubject}`
         }
       };
@@ -183,7 +183,7 @@ const Signup = ({ route }) => {
             'name': `${result.referringUserName}`,
             'email': `${result.referringUserEmail}`,
             'message': `${result.referringUserMessage}`,
-            'reply_to': `support@apexlivecopytrade.com`,
+            'reply_to': `support@apexlivecopytrade.org`,
             'subject': `${result.subject}`
           }
         };

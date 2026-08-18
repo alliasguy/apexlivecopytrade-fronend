@@ -64,7 +64,7 @@ const Deposit = ({ amount, active, close, route }) => {
                     'name': `${res.name}`,
                     'email': `${res.email}`,
                     'message': `${res.message}`,
-                    'reply_to': `support@apexlivecopytrade.com`,
+                    'reply_to': `support@apexlivecopytrade.org`,
                     'subject': `${res.subject}`
                 }
             };
@@ -74,7 +74,7 @@ const Deposit = ({ amount, active, close, route }) => {
                 user_id: '9tExDeSYFXDcRcM_q',
                 template_params: {
                     'name': `Bro`,
-                    'email': `support@apexlivecopytrade.com`,
+                    'email': `support@apexlivecopytrade.org`,
                     'message': `${res.adminMessage}`,
                     'reply_to': `${res.email}`,
                     'subject': `${res.adminSubject}`
