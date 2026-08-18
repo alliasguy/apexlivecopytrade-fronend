@@ -11,14 +11,18 @@ import { RiLuggageDepositLine } from 'react-icons/ri'
 import { AiOutlineSetting, AiOutlineStock } from 'react-icons/ai'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { FiLogOut } from 'react-icons/fi'
+import useBodyScrollLock from '../hooks/useBodyScrollLock'
 const MobileDropdown = ({ route, showStatus, closeMenu }) => {
     const navigate = useNavigate()
     const [userData, setUserData] = useState()
+
+    useBodyScrollLock(showStatus)
 
     const logout = () => {
         localStorage.removeItem('token')
         navigate('/login')
     }
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
             const getData = async () => {

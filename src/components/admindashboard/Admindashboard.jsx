@@ -25,6 +25,7 @@ import { FiCheckCircle, FiXCircle, FiFileText, FiSearch, FiMoreVertical, FiShiel
 import { AiOutlineSafety } from 'react-icons/ai'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { Badge, Button, Card, Input, Modal, Table, toast } from '../ui'
+import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 
 const KYC_STATUS_TONE = { pending: 'warning', approved: 'success', rejected: 'error' }
 
@@ -299,6 +300,7 @@ const Admindashboard = ({ route }) => {
   const [activeTraderId, setActiveTraderId] = useState()
   const [selectedValue, setSelectedValue] = useState()
   const [showStatus, setShowStatus] = useState(false)
+  useBodyScrollLock(showStatus)
   const [debitModal, setDebitModal] = useState(false)
   const [showKycReview, setShowKycReview] = useState(false)
   const [pendingKyc, setPendingKyc] = useState([])

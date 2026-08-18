@@ -10,10 +10,13 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {FaRegChartBar} from 'react-icons/fa'
 import {FiMenu} from 'react-icons/fi'
 import { jwtDecode } from 'jwt-decode'
+import useBodyScrollLock from '../hooks/useBodyScrollLock'
 const AdminHeader = ({route,openCreateTrader,openTraderLogs,openUsers,openKycReview,openSecurity}) => {
     const navigate = useNavigate()
     const [dropDown,setDropDown] = useState(false)
     const [adminEmail, setAdminEmail] = useState('')
+
+    useBodyScrollLock(dropDown)
 
     const logout = ()=>{
         localStorage.removeItem('adminToken')
@@ -40,7 +43,6 @@ const AdminHeader = ({route,openCreateTrader,openTraderLogs,openUsers,openKycRev
         }
 
     },[])
-
 
     const [bgColor, setBgColor] = useState(false)
     const changeOnScroll = ()=>{
