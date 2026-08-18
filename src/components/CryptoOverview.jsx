@@ -18,6 +18,7 @@ const CryptoOverview = () => {
         market: "crypto",
         showToolbar: true,
         colorTheme: "dark",
+        isTransparent: false,
         locale: "en"
       });
       

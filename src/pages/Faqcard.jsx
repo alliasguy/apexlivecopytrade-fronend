@@ -9,7 +9,7 @@ const Faqcard = () => {
           <h1><span className="highlight">real</span> results</h1>
           <p>the numbers behind the platform</p>
         </div>
-        <img src="/apexmockup15.png" alt="" className="mockup" data-aos="fade-up"/>
+        <img src="/apexprimemockup4.png" alt="" className="mockup" data-aos="fade-up"/>
       </div>
       <div className="why-choose-us-card-container">
         <div className="why-choose-us-text-container">

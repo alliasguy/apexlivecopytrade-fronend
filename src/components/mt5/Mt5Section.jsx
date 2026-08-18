@@ -30,7 +30,7 @@ const Mt5Section = () => {
                 </button>
         </div>
         <div className="about-img-container mt5-img" data-aos="fade-up">
-            <img src="/apexmockup20.png" className='forex-img '/>
+            <img src="/apexprimemockup8.png" className='forex-img '/>
             </div>
         </div>
     </div>

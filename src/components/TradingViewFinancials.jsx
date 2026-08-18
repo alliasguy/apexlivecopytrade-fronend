@@ -17,7 +17,7 @@ const TradingViewFinancials = () => {
     script.async = true;
     script.innerHTML = `
       {
-        "isTransparent": true,
+        "isTransparent": false,
         "largeChartUrl": "",
         "displayMode": "regular",
         "width": "100%",

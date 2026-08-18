@@ -19,7 +19,7 @@ const TradingViewTechnicalAnalysis = () => {
       {
         "interval": "1m",
         "width": "100%",
-        "isTransparent": true,
+        "isTransparent": false,
         "height": "75%",
         "symbol": "NASDAQ:AAPL",
         "showIntervalTabs": true,

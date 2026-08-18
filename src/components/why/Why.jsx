@@ -12,7 +12,7 @@ const Why = () => {
                     <h1>Market <span className="highlight">rates</span></h1>
                     <p>always accurate, live</p>
                 </div>
-              <img src="/apexmockup10.png" alt="" className="mockup" data-aos="fade-up"/>
+              <img src="/apexprimemockup1.png" alt="" className="mockup" data-aos="fade-up"/>
           </div>
         
           <div className="why-choose-us-card-container">

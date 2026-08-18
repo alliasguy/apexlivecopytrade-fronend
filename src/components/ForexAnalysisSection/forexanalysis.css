@@ -24,14 +24,12 @@
        the card chrome has to match rather than flip to a white surface
        in light mode. */
     background-color: #0a0a0f;
-    border: 1px solid #23232f;
     border-radius: var(--radius-xl);
     padding: 20px 10px;
     box-shadow: var(--shadow-sm);
-    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    transition: box-shadow var(--transition-base);
 }
 .trading-view-card:hover{
-    border-color: var(--color-primary);
     box-shadow: var(--shadow-md);
 }
 .trading-view-card-text-container{

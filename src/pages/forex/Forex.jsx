@@ -29,7 +29,7 @@ const Forex = () => {
           <div className='about-section copy-trade-section'>
             <div className="about-wrapper copy-trade-wrapper about-copy-trade-section forex-copy-trade-section">
               <div className="about-page-img forex-img-container">
-                <img src="/apexmockup8.png" className='forex-img ' data-aos="fade-up"/>
+                <img src="/apexprimemockup3.png" className='forex-img ' data-aos="fade-up"/>
               </div>
               <div className="tesla-widget-text-container" data-aos="fade-up">
                   <h1>forex <span className="highlight">trading</span> </h1>

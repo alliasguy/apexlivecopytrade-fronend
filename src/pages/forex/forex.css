@@ -31,7 +31,6 @@
 .floating-widget-right{
     position: absolute;
     background-color: #0a0a0f;
-    border: 1px solid #23232f;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     padding: 20px;
@@ -41,7 +40,6 @@
 .floating-widget-left{
     position: absolute;
     background-color: #0a0a0f;
-    border: 1px solid #23232f;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     padding: 20px;

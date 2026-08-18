@@ -22,7 +22,7 @@ const MiniSymbolOverviewWidget = () => {
           "width": "100%",
           "height": "100%",
           "largeChartUrl": "",
-          "isTransparent": true,
+          "isTransparent": false,
           "showSymbolLogo": false,
           "showFloatingTooltip": false,
           "plotLineColorGrowing": "rgba(41, 98, 255, 1)",

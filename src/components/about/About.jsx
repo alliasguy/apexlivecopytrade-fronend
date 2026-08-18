@@ -18,7 +18,7 @@ const About = () => {
                 <h1>Global <span className="highlight">overview</span></h1>
                 <p>See real-time price changes, highs, lows, and closes across global markets, all in one clean dashboard.</p>
         </div>
-        <img src="/apexmockup1.png" alt="" className="mockup" data-aos="fade-up"/>
+        <img src="/apexprimemockup6.png" alt="" className="mockup" data-aos="fade-up"/>
         </div>
       <div className="why-choose-us-card-container">
         <div className="why-choose-us-text-container">

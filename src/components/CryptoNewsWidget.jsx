@@ -18,7 +18,7 @@ const CryptoNewsWidget = () => {
     script.innerHTML = `
       {
         "feedMode": "all_symbols",
-        "isTransparent": true,
+        "isTransparent": false,
         "displayMode": "regular",
         "width": "100%",
         "height": "100%",

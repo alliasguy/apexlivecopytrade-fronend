@@ -17,6 +17,7 @@ const Futurewidget = () => {
         screener_type: "crypto_mkt",
         displayCurrency: "BTC",
         colorTheme: "dark",
+        isTransparent: false,
         locale: "en"
       });
       

@@ -14,7 +14,7 @@ const Economiceventswidget = () => {
         width: "100%",
         height: "100%",
         colorTheme: "dark",
-        isTransparent: true,
+        isTransparent: false,
         locale: "en",
         importanceFilter: "0,1",
         countryFilter: "ar,au,br,ca,cn,fr,de,in,id,it,jp,kr,mx,ru,sa,za,tr,gb,us,eu"

@@ -15,7 +15,7 @@ const Us100widget = () => {
         width: "550",
         locale: "en",
         colorTheme: "dark",
-        isTransparent: true,
+        isTransparent: false,
         backgroundColor: "#0a0a0f"
       });
       

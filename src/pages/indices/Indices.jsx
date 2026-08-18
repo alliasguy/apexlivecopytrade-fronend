@@ -30,7 +30,7 @@ const Indices = () => {
           <div className='about-section copy-trade-section'>
             <div className="about-wrapper copy-trade-wrapper about-copy-trade-section forex-copy-trade-section">
               <div className="about-page-img forex-img-container">
-                <img src="/apexmockup10.png" className='forex-img ' data-aos="fade-up"/>
+                <img src="/apexprimemockup1.png" className='forex-img ' data-aos="fade-up"/>
               </div>
               <div className="tesla-widget-text-container" data-aos="fade-up">
                   <h1>Indices <span className="highlight">trading</span> </h1>

@@ -62,7 +62,7 @@ const Cryptowatchlist = () => {
             }
           ],
           "showSymbolLogo": true,
-          "isTransparent": true,
+          "isTransparent": false,
           "colorTheme": "dark",
           "locale": "en"
         }`;

@@ -25,7 +25,7 @@ const Indicesheatmap = () => {
           "COP",
           "UYU"
         ],
-        isTransparent: true,
+        isTransparent: false,
         colorTheme: "dark",
         locale: "en"
       });

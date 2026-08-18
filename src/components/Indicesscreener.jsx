@@ -19,7 +19,7 @@ const Indicesscreener = () => {
         showToolbar: true,
         colorTheme: "dark",
         locale: "en",
-        isTransparent: true
+        isTransparent: false
       });
       
       if (containerRef.current) {
