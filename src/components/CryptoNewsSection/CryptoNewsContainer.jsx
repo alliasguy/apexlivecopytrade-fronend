@@ -7,8 +7,8 @@ const CryptoNewsContainer = () => {
   return (
     <section className='tesla-widget-container'>
               <div className="videoframe-text-container">
-                  <h1>Market  <span className="highlight">news </span></h1>
-                  <p>Grab an overview of global markets including price changes, open, high, low, and close values for selected instruments.</p>
+                  <h1>Breaking <span className="highlight">news </span></h1>
+                  <p>Stay on top of the headlines moving crypto and stock prices, updated throughout the day.</p>
             </div>
           <div className="tesla-widget-wrapper">
               <div className="tesla-widget-chart-container">
@@ -16,7 +16,7 @@ const CryptoNewsContainer = () => {
                   </div>
                   <div className="tesla-widget-text-container">
                       <h1>Top Stories</h1>
-                      <p>Help your audience keep track of what's happening in the crypto and stock markets with our daily symbol snapshots – designed to be read in 20 seconds or less.</p>
+                      <p>Keep track of what's moving the crypto and stock markets with quick daily snapshots - built to be read in 20 seconds or less.</p>
                       <div className="tesla-widget-btn-container">
                           <button className='launch-btn'
                         initial={{y:45, opacity:0}}

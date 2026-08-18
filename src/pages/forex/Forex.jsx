@@ -33,7 +33,7 @@ const Forex = () => {
               </div>
               <div className="tesla-widget-text-container" data-aos="fade-up">
                   <h1>forex <span className="highlight">trading</span> </h1>
-                  <p>Buy and sell one currency for another on the market with the highest capitalization. There are a lot of big players in Forex including central banks, companies, etc. There is also room for strategies, you can get a few pips instantly on minor price fluctuations, or you can choose a safer method.</p>
+                  <p>Buy and sell one currency against another in the world's largest, most liquid market. Central banks, corporations, and funds all trade here around the clock. Whether you're chasing quick pips on minor fluctuations or playing a longer, steadier strategy, forex has a lane for you.</p>
                   <div className="tesla-widget-btn-container">
                       <button className='launch-btn'
                     initial={{y:45, opacity:0}}
@@ -59,14 +59,14 @@ const Forex = () => {
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container">
                               <h1>Forex Cross Rates</h1>
-                              <p>This one allows you to display real-time quotes of selected currencies in comparison to other major currencies.</p>
+                              <p>See how any pair stacks up in real time, with live cross-rate quotes across every major currency.</p>
                           </div>
                           <Forexcrossmaps />
                       </div>
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container">
                               <h1>Forex Heatmap</h1>
-                              <p>Showcase a snapshot of currency market action. This widget lets you spot strong and weak currencies and see how they compare to each other, all in real-time.</p>
+                              <p>Get an instant snapshot of the currency market - spot which currencies are strong, which are weak, and how they compare, live.</p>
                           </div>
                           <Forexheatmap />
                       </div>

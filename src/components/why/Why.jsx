@@ -9,8 +9,8 @@ const Why = () => {
       <div className='why-choose-section'>
           <div className="why-choose-us-img-container">
               <div className="videoframe-text-container" data-aos="fade-up">
-                    <h1>Market  <span className="highlight">rates</span></h1>
-                    <p>comprehensive features</p>
+                    <h1>Market <span className="highlight">rates</span></h1>
+                    <p>always accurate, live</p>
                 </div>
               <img src="/apexmockup10.png" alt="" className="mockup" data-aos="fade-up"/>
           </div>
@@ -19,22 +19,22 @@ const Why = () => {
               <div className="why-choose-us-text-container">
             <div className="header" data-aos="fade-up">
                 <span className="header-line"></span>
-                <h2>our comprehensive features</h2>
+                <h2>built for serious traders</h2>
             </div>
-            <h1 data-aos="fade-up">apexlivecopytrade</h1>
-            <p data-aos="fade-up">the following are our comprehensive features.</p>
+            <h1 data-aos="fade-up">trade with an edge</h1>
+            <p data-aos="fade-up">here's what makes our platform stand out.</p>
             </div>
             <div className="why-choose-us-card" data-aos="fade-up">
                 <span className="card-counter">01</span>
                 <RiLineChartLine />
-                <h2>Market review</h2>
-                <p>Analyze all trades to select prospective assets and enter/exit positions in time, earning the most.</p>
+                <h2>Live analysis</h2>
+                <p>Every trade is backed by real analysis, so entries and exits are timed to capture the strongest moves.</p>
             </div>
             <div className="why-choose-us-card" data-aos="fade-up">
                 <span className="card-counter">02</span>
                 <FiPieChart />
                 <h2>Access</h2>
-                <p>Get a global investment experience with all sorts of tools on the stock, foreign exchange and commodity market.</p>
+                <p>Trade global markets - stocks, forex, and commodities - with every tool a serious investor needs.</p>
             </div>
         </div>
     </div>

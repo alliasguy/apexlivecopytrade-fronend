@@ -34,7 +34,7 @@ const Indices = () => {
               </div>
               <div className="tesla-widget-text-container" data-aos="fade-up">
                   <h1>Indices <span className="highlight">trading</span> </h1>
-                  <p>Buy and sell one currency for another on the market with the highest capitalization. There are a lot of big players in crypto including central banks, companies, etc. There is also room for strategies, you can get a few pips instantly on minor price fluctuations, or you can choose a safer method.</p>
+                  <p>Indices track a basket of top companies, giving you one clean number for how an entire market is performing. They're a fast way to read overall sentiment, hedge a portfolio, or trade broad market moves without picking individual stocks.</p>
                   <div className="tesla-widget-btn-container">
                       <button className='launch-btn'
                     initial={{y:45, opacity:0}}
@@ -60,14 +60,14 @@ const Indices = () => {
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container" >
                               <h1>indices Market</h1>
-                              <p>This widget displays crypto assets and then sorts them by their market capitalization.</p>
+                              <p>See how leading market indices are moving today, with live data updated throughout the session.</p>
                           </div>
                           <Indicesheatmap />
                       </div>
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container" >
                               <h1>indices Screener</h1>
-                              <p>Separate the wheat from the chaff with this embeddable Screener – handy for sorting symbols both by fundamental and technical indicators.</p>
+                              <p>Sort and filter indices by fundamental and technical indicators to quickly spot what's moving.</p>
                           </div>
                           <Indicesscreener />
                       </div>

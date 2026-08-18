@@ -22,7 +22,7 @@ const News = () => {
           <section className='tesla-widget-container news-widget-wrapper'>
               <div className="videoframe-text-container">
                   <h1>economic  <span className="highlight">events </span></h1>
-                  <p>Display important economic events throughout our world, directly on your site.</p>
+                  <p>Track the economic events shaping markets around the world, right on your dashboard.</p>
             </div>
             <div className="tesla-widget-wrapper news-tesla-widget">
               <div className="tesla-widget-chart-container">
@@ -30,7 +30,7 @@ const News = () => {
                   </div>
                   <div className="tesla-widget-text-container">
                       <h1>Economic Calendar</h1>
-                      <p>Keep an eye on key upcoming economic events, announcements, and news. Plus, set up filters in a few clicks, selecting for event importance and affected currencies.</p>
+                      <p>Keep an eye on upcoming economic events, announcements, and news. Filter by importance or affected currency in just a few clicks.</p>
                       <div className="tesla-widget-btn-container">
                           <button className='launch-btn'
                         initial={{y:45, opacity:0}}

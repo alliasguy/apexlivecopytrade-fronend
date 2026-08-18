@@ -7,13 +7,13 @@ const TeslaWidgetContainer = () => {
   return (
       <section className='tesla-widget-container'>
           <div className="videoframe-text-container" data-aos="fade-up">
-              <h1>Market  <span className="highlight">Data </span></h1>
-              <p>Grab an overview of global markets including price changes, open, high, low, and close values for selected instruments.</p>
+              <h1>Price <span className="highlight">action </span></h1>
+              <p>See exactly how each symbol has moved - opens, highs, lows, and closes, all in one glance.</p>
         </div>
           <div className="tesla-widget-wrapper">
               <div className="tesla-widget-text-container" data-aos="fade-up">
                   <h1>Symbol <span className="highlight">Overview</span> </h1>
-                  <p>Embed the latest quotes, plus a simple chart of a single symbol of your choice. A great option for any web or mobile-geared pages.</p>
+                  <p>Track any symbol you choose, with live quotes and a clean chart built right into your dashboard.</p>
                   <div className="tesla-widget-btn-container">
                       <button className='launch-btn'
                     initial={{y:45, opacity:0}}

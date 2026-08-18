@@ -34,7 +34,7 @@ const Stocks = () => {
               </div>
               <div className="tesla-widget-text-container" data-aos="fade-up">
                   <h1>Stocks <span className="highlight">trading</span> </h1>
-                  <p>Buy and sell one currency for another on the market with the highest capitalization. There are a lot of big players in crypto including central banks, companies, etc. There is also room for strategies, you can get a few pips instantly on minor price fluctuations, or you can choose a safer method.</p>
+                  <p>Own a piece of the companies you believe in. Stocks give you a direct stake in a business's growth, from established blue chips to fast-moving names. Build a long-term position, or actively trade the swings - the choice is yours.</p>
                   <div className="tesla-widget-btn-container">
                       <button className='launch-btn'
                     initial={{y:45, opacity:0}}
@@ -60,14 +60,14 @@ const Stocks = () => {
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container" >
                               <h1>stocks Market</h1>
-                              <p>This widget displays crypto assets and then sorts them by their market capitalization.</p>
+                              <p>See how leading stocks are performing today, ranked and sorted by market capitalization.</p>
                           </div>
                           <Stocksoverview />
                       </div>
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container" >
                               <h1>stocks market Screener</h1>
-                              <p>Separate the wheat from the chaff with this embeddable Screener – handy for sorting symbols both by fundamental and technical indicators.</p>
+                              <p>Sort and filter stocks by fundamental and technical indicators to quickly spot what's moving.</p>
                           </div>
                           <Stockscreener />
                       </div>

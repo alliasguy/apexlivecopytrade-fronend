@@ -5,8 +5,8 @@ const Faqcard = () => {
     <div className='why-choose-section stat-section'>
       <div className="why-choose-us-img-container">
         <div className="videoframe-text-container" data-aos="fade-up">
-          <h1><span className="highlight">our</span> statistics</h1>
-          <p>here is our compound statistics</p>
+          <h1><span className="highlight">real</span> results</h1>
+          <p>the numbers behind the platform</p>
         </div>
         <img src="/apexmockup15.png" alt="" className="mockup" data-aos="fade-up"/>
       </div>
@@ -14,10 +14,10 @@ const Faqcard = () => {
         <div className="why-choose-us-text-container">
             <div className="header" data-aos="fade-up">
                 <span className="header-line"></span>
-                <h2>statistic review</h2>
+                <h2>by the numbers</h2>
             </div>
-            <h1 data-aos="fade-up">compound statistics</h1>
-            <p data-aos="fade-up">Below are the real-time statistics of satisfied traders on our platform</p>
+            <h1 data-aos="fade-up">results that speak</h1>
+            <p data-aos="fade-up">Here's a live look at how traders are performing on our platform right now.</p>
         </div>
             <div className="stat-card-container">
               <div className="stat-card" data-aos="fade-up">

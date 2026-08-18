@@ -34,7 +34,7 @@ const Futures = () => {
               </div>
               <div className="tesla-widget-text-container" data-aos="fade-up">
                   <h1>futures <span className="highlight">trading</span> </h1>
-                  <p>Buy and sell one currency for another on the market with the highest capitalization. There are a lot of big players in crypto including central banks, companies, etc. There is also room for strategies, you can get a few pips instantly on minor price fluctuations, or you can choose a safer method.</p>
+                  <p>Futures let you speculate on where an asset's price is headed, without owning it outright. From crypto to commodities, big players and independent traders alike use them to hedge risk or chase bigger, leveraged moves.</p>
                   <div className="tesla-widget-btn-container">
                       <button className='launch-btn'
                     initial={{y:45, opacity:0}}
@@ -60,14 +60,14 @@ const Futures = () => {
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container" >
                               <h1>Cryptocurrency Market</h1>
-                              <p>This widget displays crypto assets and then sorts them by their market capitalization.</p>
+                              <p>Browse every major crypto asset, ranked and sorted by market capitalization in real time.</p>
                           </div>
                           <Futurewidget />
                       </div>
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container" >
                               <h1>Crypto Screener</h1>
-                              <p>Separate the wheat from the chaff with this embeddable Screener – handy for sorting symbols both by fundamental and technical indicators.</p>
+                              <p>Filter out the noise with our screener - sort symbols by fundamental and technical indicators to find what matters.</p>
                           </div>
                           <CryptoOverview />
                       </div>

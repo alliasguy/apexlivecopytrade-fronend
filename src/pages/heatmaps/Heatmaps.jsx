@@ -28,14 +28,14 @@ const Heatmaps = () => {
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container">
                               <h1>crypto heat maps</h1>
-                              <p>This one allows you to display real-time quotes of selected currencies in comparison to other major currencies.</p>
+                              <p>See the crypto market at a glance - color-coded by performance, so winners and losers stand out instantly.</p>
                           </div>
                           <Cryptoheatmaps />
                       </div>
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container">
                               <h1>Forex Heatmap</h1>
-                              <p>Showcase a snapshot of currency market action. This widget lets you spot strong and weak currencies and see how they compare to each other, all in real-time.</p>
+                              <p>Spot which currencies are running hot and which are cooling off, color-coded and updated in real time.</p>
                           </div>
                           <Forexheatmap />
                       </div>

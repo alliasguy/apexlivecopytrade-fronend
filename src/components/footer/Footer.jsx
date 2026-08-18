@@ -58,7 +58,7 @@ const Footer = () => {
             <div className="quicklink-card-container">
                 <div className="quicklink-brand" data-aos="fade-up">
                     <img src="/apexlivetradelogo3.png" alt="Apexlivecopytrade" className="footer-logo" />
-                    <p>Copy expert traders across forex, stocks, indices and crypto - all from one account.</p>
+                    <p>Follow top-performing traders across forex, stocks, indices, and crypto - one account, every market.</p>
                 </div>
                 {linkColumns.map((column) => (
                     <div className="quicklink-card" key={column.heading} data-aos="fade-up">

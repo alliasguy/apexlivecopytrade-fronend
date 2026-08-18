@@ -9,9 +9,9 @@ const Contact = () => {
                 <span className="header-line"></span>
                 <h2>contact us</h2>
             </div>
-            <h1 data-aos="fade-up">keep in touch</h1>
+            <h1 data-aos="fade-up">let's talk</h1>
             <p data-aos="fade-up">
-                Any question? Reach out to us and we’ll get back to you shortly.
+                Have a question? Send us a message and we'll respond right away.
             </p>
             <a href='mailto:apexcopytradex@gmail.com' className="contact-email-btn" data-aos="fade-up">
                 <FiMail />

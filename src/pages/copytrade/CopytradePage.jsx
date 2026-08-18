@@ -52,7 +52,7 @@ const CopytradePage = () => {
         <div className='plan-section copy-trade-plan-section'>
       <div className="videoframe-text-container" data-aos="fade-up">
               <h1> <span className="highlight">copytrade </span> plans</h1>
-              <p>Here are some carefully currated investment plans, created to ensure maximum return of investment.</p>
+              <p>Here are a few carefully curated investment plans, built to help you grow your portfolio steadily.</p>
       </div>
       <div className="service-gap"></div>
               <div className="plan-card-container copy-trade-card-container">

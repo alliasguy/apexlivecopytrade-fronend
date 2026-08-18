@@ -8,13 +8,13 @@ const Videoframe = () => {
   return (
       <section className='tesla-widget-container'>
                 <div className="videoframe-text-container" data-aos="fade-up">
-                    <h1>Market  <span className="highlight">rates</span></h1>
-                    <p>Grab an overview of global markets including price changes, open, high, low, and close values for selected instruments.</p>
+                    <h1>Global <span className="highlight">markets</span></h1>
+                    <p>Track indices, futures, bonds, and forex side by side, with live pricing updated every second.</p>
               </div>
                 <div className="tesla-widget-wrapper">
                     <div className="tesla-widget-text-container" data-aos="fade-up">
                         <h1>forex <span className="highlight">cross rates</span></h1>
-                        <p>This one allows you to display real-time quotes of selected currencies in comparison to other major currencies.</p>
+                        <p>Compare any currency against the majors instantly, with live, real-time cross-rate quotes updating throughout the day.</p>
                         <div className="tesla-widget-btn-container">
                             <button className='launch-btn'
                           initial={{y:45, opacity:0}}

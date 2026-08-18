@@ -18,7 +18,7 @@ const Terms = () => {
         <Header />
             <div className="videoframe-text-container team-header">
               <h1>meet our <span className="highlight">team </span></h1>
-              <p>here's our team</p>
+              <p>the team behind your success</p>
             </div>
             <div className="review-card-container team-card-container">
               <div className="review-card team-card" data-aos="fade-up">
@@ -59,7 +59,7 @@ const Terms = () => {
                   <img src="/coporate-woman.jpg" alt="" />
                   <div className="review-card-rating-container">
                     <div className="rate-icon-container">
-                      <small>custormer care</small>
+                      <small>customer care</small>
                     </div>
                     <p className='investor-name'>catherine kate</p>
                   </div>

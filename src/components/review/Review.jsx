@@ -18,8 +18,8 @@ const Review = () => {
     <>
     <div className='review-section'>
         <div className="videoframe-text-container">
-          <h1>investors <span className="highlight">review </span></h1>
-          <p>here are some reviews left by our most profitable investors.</p>
+          <h1>trader <span className="highlight">voices </span></h1>
+          <p>hear directly from traders who've grown their portfolios with us.</p>
             </div>
         <div className="review-card-container">
           <div className="review-card" data-aos="fade-up">

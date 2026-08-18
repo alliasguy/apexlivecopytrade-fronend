@@ -6,7 +6,7 @@ const Mt5Section = () => {
   return (
       <div className='about-section mt5-trade-section' id='about'>
           <div className="videoframe-text-container" data-aos="fade-up">
-              <h1>explore  <span className="highlight">mt4/mt5 </span></h1>
+              <h1>powered by <span className="highlight">mt4/mt5 </span></h1>
               <p></p>
         </div>
           <div className="about-wrapper copy-trade-wrapper mt5-wrapper">
@@ -15,7 +15,7 @@ const Mt5Section = () => {
                 
                 <h1 data-aos="fade-up" className='copytrade-header'>Advanced Trading</h1>
                 <p data-aos="fade-up">
-                At APEXLIVECOPYTRADE, we provide accurate forex analysis to help investors maximize profits through copy trading. Using MT4 and MT5, our experts analyze the markets with technical and fundamental strategies, identifying high-probability trades. We share real-time signals, market updates, and risk assessments.
+                At Apexlivecopytrade, our forex analysts help you make more informed decisions through copy trading. Using MT4 and MT5, our experts study the markets with technical and fundamental strategies to identify high-probability trades. We share real-time signals, market updates, and risk assessments.
                   </p>
                   <button className='launch-btn'
                     initial={{y:45, opacity:0}}

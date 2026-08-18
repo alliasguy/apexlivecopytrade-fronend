@@ -28,14 +28,14 @@ const Watchlist = () => {
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container">
                               <h1>crypto watchlist</h1>
-                              <p>This one allows you to display real-time quotes of selected currencies in comparison to other major currencies.</p>
+                              <p>Track your favorite markets in one place, across indices, futures, bonds, and forex.</p>
                           </div>
                           <TradingViewWidget />
                       </div>
                       <div className="trading-view-card">
                           <div className="trading-view-card-text-container">
                               <h1>Forex watchlist</h1>
-                              <p>Showcase a snapshot of currency market action. This widget lets you spot strong and weak currencies and see how they compare to each other, all in real-time.</p>
+                              <p>Build a custom list of the pairs and symbols you follow most, updated live.</p>
                           </div>
                           <Cryptowatchlist />
                       </div>

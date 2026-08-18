@@ -11,7 +11,7 @@ const Buybitcoin = () => {
     <Header />
       <section className='about-landpage bitcoin-lanpage'>
         <div className="about-page-text">
-          <h3>want to buy bitcoin?</h3>
+          <h3>ready to buy bitcoin?</h3>
           <span className="small-thin-line"></span>
         </div>
       </section>
@@ -22,7 +22,7 @@ const Buybitcoin = () => {
                 <h2>where to buy</h2>
             </div>
             <h1 data-aos="fade-up">best cryptocurrencies</h1>
-            <p data-aos="fade-up">Below is a list of the best crypto currency companies that has been tested and trusted, where you can securely buy Bitcoin and other crypto currencies.</p>
+            <p data-aos="fade-up">Below is a list of trusted, thoroughly tested crypto exchanges where you can securely buy Bitcoin and other cryptocurrencies.</p>
         </div>
         <div className="bitcoin-card flipped" data-aos="fade-up">
           <div className="bitcoin-card-text-container">
@@ -91,7 +91,7 @@ const Buybitcoin = () => {
         <div className="bitcoin-card flipped" data-aos="fade-up">
         <div className="bitcoin-card-text-container">
             <h2>binance</h2>
-            <p>Buy, trade, and hold 350+ cryptocurrencies on Binance.Binance is one of the most noteable and reliable crypto trading platform. You can also buy and sell bitcoin there.</p>
+            <p>Buy, trade, and hold 350+ cryptocurrencies on Binance. Binance is one of the most notable and reliable crypto trading platforms. You can also buy and sell bitcoin there.</p>
             <a href="https://binance.com" target="_blank" rel="noopener noreferrer">
             <button class="learn-more">
               <span class="circle" aria-hidden="true">

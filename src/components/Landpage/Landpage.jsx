@@ -18,14 +18,14 @@ const Landpage = () => {
                     animate={{y:0, opacity:1}}
                     transition={{duration:0.65,delay:0.2}}
                 >
-                    <span className="landpage-highlight">copytrading</span> made seamless
+                    <span className="landpage-highlight">copytrading</span>, simplified
                 </motion.h1>
                 <motion.p
                     initial={{y:45, opacity:0}}
                     animate={{y:0, opacity:1}}
                     transition={{duration:0.65,delay:0.4}}
                 >
-                    Providing you the opportunity to copy experts in more than 50 assets for continuous income. 
+                    Follow proven traders across 50+ markets and mirror their strategies for consistent results.
                   </motion.p>
                   <div className="launch-btn-container">
                 <motion.button className='launch-btn'
@@ -36,7 +36,7 @@ const Landpage = () => {
                         navigate('/signup')
                     }}
                 >
-                    <span>start trading</span>
+                    <span>start earning</span>
                 </motion.button>
                 </div>
               </motion.div>

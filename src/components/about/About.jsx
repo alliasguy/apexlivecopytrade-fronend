@@ -15,8 +15,8 @@ const About = () => {
         <div className='why-choose-section why-choose-section--reverse'>
       <div className="why-choose-us-img-container">
         <div className="videoframe-text-container" data-aos="fade-up">
-                <h1>Market  <span className="highlight">overview</span></h1>
-                <p>Grab an overview of global markets including price changes, open, high, low, and close values for selected instruments.</p>
+                <h1>Global <span className="highlight">overview</span></h1>
+                <p>See real-time price changes, highs, lows, and closes across global markets, all in one clean dashboard.</p>
         </div>
         <img src="/apexmockup1.png" alt="" className="mockup" data-aos="fade-up"/>
         </div>
@@ -26,20 +26,20 @@ const About = () => {
                 <span className="header-line"></span>
                 <h2>why choose us</h2>
             </div>
-            <h1 data-aos="fade-up">best qualities</h1>
-            <p data-aos="fade-up">Our Team combines a passion for arbitrage,stock,indices,forex and crypto trading, to ensure maximum profit.</p>
+            <h1 data-aos="fade-up">what sets us apart</h1>
+            <p data-aos="fade-up">Our team brings deep experience in arbitrage, stocks, indices, forex, and crypto trading to every account.</p>
         </div>
             <div className="why-choose-us-card" data-aos="fade-up">
                             <span className="card-counter">01</span>
                             <IoWallet />
-                            <h2>Make a deposit</h2>
-                            <p>your trade plans are very much upgradeable at any point you want to. we provide our clients the ability to scale up their investments.</p>
+                            <h2>Flexible deposits</h2>
+                            <p>Scale your investment whenever you're ready - upgrade your plan any time as your goals and capital grow.</p>
                         </div>
                         <div className="why-choose-us-card" data-aos="fade-up">
                             <span className="card-counter">02</span>
                             <BsBarChartFill />
-                            <h2>Start trading</h2>
-                            <p>We use our advanced experience in arbitrage trading to minimize our clients cost of trade and unnecessary transaction expenses.</p>
+                            <h2>Trade smarter</h2>
+                            <p>Our advanced arbitrage strategies help keep your trading costs low and cut out unnecessary transaction fees.</p>
                         </div>
         </div>
         </div>
