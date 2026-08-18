@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './header.css';
 import { RiArrowDownSLine } from "react-icons/ri";
 import { MdClose } from "react-icons/md";
+import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 const Header = () => {
     const [showModal, setShowModal] = useState(false);
     const [bgColor, setBgColor] = useState(false);
@@ -23,18 +24,14 @@ const Header = () => {
     }, []);
 
     // Lock background scroll while the mobile drawer is open, and let Escape close it.
+    useBodyScrollLock(showModal);
     useEffect(() => {
         if (!showModal) return;
-        const previousOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
         const onKeyDown = (e) => {
             if (e.key === 'Escape') setShowModal(false);
         };
         window.addEventListener('keydown', onKeyDown);
-        return () => {
-            document.body.style.overflow = previousOverflow;
-            window.removeEventListener('keydown', onKeyDown);
-        };
+        return () => window.removeEventListener('keydown', onKeyDown);
     }, [showModal]);
 
     const closeMobileMenu = () => {

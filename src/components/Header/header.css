@@ -352,6 +352,9 @@ nav ul li:hover a {
         z-index: 30;
         overflow-x: hidden;
         overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
     }
     .menu-card.is-open {
         transform: translateX(0);
