@@ -268,6 +268,9 @@
     .drop-down{
         width: 90%;
         overflow: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
         height: 100dvh;
         position: fixed;
         top: 0;
