@@ -187,7 +187,7 @@ const Userdashboardhomepage = ({ route }) => {
             </button>
           </div>
 
-          {loading ? (
+          {loading || !rank ? (
             <StatCardSkeleton />
           ) : (
             <Card padding="md" glass className="rank-card">
