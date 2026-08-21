@@ -1208,7 +1208,8 @@ const Admindashboard = ({ route }) => {
                                 <td>lastname</td>
                                 <td>email</td>
                                 <td>username</td>
-                                <td>deposit</td>
+                                <td>total deposit</td>
+                                <td>account balance</td>
                                 <td>actions</td>
                               </tr>
                             </thead>
@@ -1220,7 +1221,8 @@ const Admindashboard = ({ route }) => {
                                     <td>{refer.lastname}</td>
                                     <td>{refer.email}</td>
                                     <td>{refer.username}</td>
-                                    <td>${refer.funded} USD</td>
+                                    <td>${Number(refer.totaldeposit || 0).toLocaleString()} USD</td>
+                                    <td>${Number(refer.funded || 0).toLocaleString()} USD</td>
                                     <td>
                                       <Button
                                         variant="outline"
