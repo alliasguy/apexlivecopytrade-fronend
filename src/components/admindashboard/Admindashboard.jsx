@@ -15,7 +15,7 @@ import Userdashboardheader from '../userdashboardheader/Userdashboardheader'
 import { MdClose } from 'react-icons/md'
 import AdminHeader from '../AdminHeader'
 import { RxUpload } from 'react-icons/rx'
-import { MdCandlestickChart, MdOutlineShowChart, MdDeleteSweep } from 'react-icons/md'
+import { MdCandlestickChart, MdOutlineShowChart, MdDeleteSweep, MdAccountBalanceWallet } from 'react-icons/md'
 import { BsImage } from 'react-icons/bs'
 import { FiLogOut } from 'react-icons/fi'
 import { GiReceiveMoney } from 'react-icons/gi'
@@ -740,6 +740,12 @@ const Admindashboard = ({ route }) => {
     )
   }) : users
 
+  const userTotals = users ? users.reduce((acc, u) => {
+    acc.totalDeposit += Number(u.totaldeposit) || 0
+    acc.totalBalance += Number(u.funded) || 0
+    return acc
+  }, { totalDeposit: 0, totalBalance: 0 }) : { totalDeposit: 0, totalBalance: 0 }
+
   return (
     <main className='admin-dash'>
 
@@ -1166,6 +1172,24 @@ const Admindashboard = ({ route }) => {
                     <h2>Users logs</h2>
                     <p>we keep track of all users info</p>
                   </section>
+                  {users && users.length !== 0 &&
+                    <div className="admin-stats-grid">
+                      <Card padding="md" className="admin-stat-card">
+                        <div className="admin-stat-icon"><GiReceiveMoney /></div>
+                        <div className="admin-stat-text">
+                          <p className="admin-stat-label">Total Deposit</p>
+                          <p className="admin-stat-value">${userTotals.totalDeposit.toLocaleString()} USD</p>
+                        </div>
+                      </Card>
+                      <Card padding="md" className="admin-stat-card">
+                        <div className="admin-stat-icon"><MdAccountBalanceWallet /></div>
+                        <div className="admin-stat-text">
+                          <p className="admin-stat-label">Total Account Balance</p>
+                          <p className="admin-stat-value">${userTotals.totalBalance.toLocaleString()} USD</p>
+                        </div>
+                      </Card>
+                    </div>
+                  }
                   {users && users.length !== 0 ?
                     <>
                       <Input
